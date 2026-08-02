@@ -30,7 +30,7 @@ export function StaticReviewGallery() {
               <strong>{title}</strong>
             </div>
             <div className="static-review__viewport">
-              <iframe src={`${base}${route}/`} title={`Demo ${number}: ${title}`} />
+              <iframe src={`${base}${route}/?frame=1`} title={`Demo ${number}: ${title}`} />
             </div>
           </article>
         ))}

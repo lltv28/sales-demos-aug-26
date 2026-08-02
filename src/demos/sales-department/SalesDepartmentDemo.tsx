@@ -1,79 +1,75 @@
 import { DemoStage } from '../../components/DemoStage';
-import { useDemoLoop } from '../../hooks/useDemoLoop';
+import { DemoSurface, FlowIconTile, FlowNode } from '../../components/DemoPrimitives';
 import './sales-department.css';
 
-const SALES_DEPARTMENT_BEAT_DURATIONS = [2300, 2500, 3400] as const;
+const triagers = ['Triager 1', 'Triager 2', 'Triager 3'];
+const salespeople = ['Salesperson 1', 'Salesperson 2', 'Salesperson 3'];
 
-const triagers = Array.from({ length: 6 }, (_, index) => (
-  <div className="sd-agent" key={index}>
-    <span>AI</span>
-    <small>Triager {index + 1}</small>
-  </div>
-));
-
-function FlowArrow({ label, kind }: { label: string; kind: 'direct' | 'handoff' }) {
+function BrainMark() {
   return (
-    <div className={`sd-flow-arrow sd-flow-arrow--${kind}`}>
-      <span>{label}</span>
-      <i />
-    </div>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3.5c.65 4.75 3.25 7.35 8 8-4.75.65-7.35 3.25-8 8-.65-4.75-3.25-7.35-8-8 4.75-.65 7.35-3.25 8-8Z" />
+    </svg>
+  );
+}
+
+function PeopleMark() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="8" r="3" />
+      <path d="M6.5 19c.6-3.4 2.45-5.1 5.5-5.1s4.9 1.7 5.5 5.1" />
+    </svg>
   );
 }
 
 export function SalesDepartmentDemo() {
-  const phase = useDemoLoop(SALES_DEPARTMENT_BEAT_DURATIONS);
-
   return (
     <DemoStage
       eyebrow="Your AI Sales Department"
-      title="One team moves every buyer forward."
-      subtitle="Brain + Manager directs the work, six Triagers sell the first step, and one Salesperson makes the right offer."
+      title="One brain directs the entire sales team"
+      subtitle="Brain + Manager guides the Triagers, who route every buyer to the right AI Salesperson."
     >
-      <div className={`sd-demo sd-demo--phase-${phase + 1}`} data-loop-beats={SALES_DEPARTMENT_BEAT_DURATIONS.join(',')}>
-        <section className="sd-role sd-role--brain">
-          <div className="sd-role__mark">B</div>
-          <div className="sd-role__kicker">Combined role</div>
-          <h2>Brain +<br />Manager</h2>
-          <p>Sets the sales play and guides every conversation.</p>
-        </section>
+      <DemoSurface className="sd-org" aria-label="Vertical AI sales department organization chart">
+        <svg className="sd-org__connectors" viewBox="0 0 1480 640" fill="none" aria-hidden="true">
+          <path d="M740 172V208H352V250" />
+          <path d="M740 208V250" />
+          <path d="M740 208H1128V250" />
+          <path d="M352 376V466" />
+          <path d="M740 376V466" />
+          <path d="M1128 376V466" />
+          <circle cx="740" cy="208" r="5" />
+          <circle cx="352" cy="432" r="4" />
+          <circle cx="740" cy="432" r="4" />
+          <circle cx="1128" cy="432" r="4" />
+        </svg>
 
-        <FlowArrow label="Directs" kind="direct" />
-
-        <section className="sd-triagers">
-          <header>
-            <div>
-              <div className="sd-role__kicker">The front door</div>
-              <h2>6 AI Triagers</h2>
-            </div>
-            <p>Every new buyer gets a helpful first conversation.</p>
-          </header>
-          <div className="sd-agent-grid">{triagers}</div>
-          <div className="sd-assessment">
-            <span>Paid first step</span>
-            <strong>$17 Personalized Assessment</strong>
-            <i>Plan delivered</i>
+        <FlowNode className="sd-org__root sd-org__node">
+          <FlowIconTile className="sd-org__brain-icon"><BrainMark /></FlowIconTile>
+          <div>
+            <small>Leadership</small>
+            <strong>Brain + Manager</strong>
+            <p>Directs every conversation</p>
           </div>
-        </section>
+        </FlowNode>
 
-        <FlowArrow label="Paid buyer" kind="handoff" />
+        <div className="sd-org__row sd-org__row--triagers" aria-label="AI Triagers">
+          {triagers.map((label) => (
+            <FlowNode className="sd-org__node sd-org__role" key={label}>
+              <FlowIconTile><PeopleMark /></FlowIconTile>
+              <div><small>AI Triager</small><strong>{label}</strong></div>
+            </FlowNode>
+          ))}
+        </div>
 
-        <section className="sd-role sd-role--sales">
-          <div className="sd-role__mark">S</div>
-          <div className="sd-role__kicker">One closer</div>
-          <h2>AI Salesperson</h2>
-          <p>Offers the Main Service first.</p>
-          <div className="sd-offers">
-            <div className="sd-offer sd-offer--primary">
-              <span>Best fit</span>
-              <strong>Main Service</strong>
-            </div>
-            <div className="sd-offer">
-              <span>If not ready / not qualified</span>
-              <strong>Pocket Coach</strong>
-            </div>
-          </div>
-        </section>
-      </div>
+        <div className="sd-org__row sd-org__row--salespeople" aria-label="AI Salespeople">
+          {salespeople.map((label) => (
+            <FlowNode className="sd-org__node sd-org__role" key={label}>
+              <FlowIconTile><PeopleMark /></FlowIconTile>
+              <div><small>AI Salesperson</small><strong>{label}</strong></div>
+            </FlowNode>
+          ))}
+        </div>
+      </DemoSurface>
     </DemoStage>
   );
 }

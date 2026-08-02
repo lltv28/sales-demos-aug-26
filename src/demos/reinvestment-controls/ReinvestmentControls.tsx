@@ -1,70 +1,61 @@
+import type { CSSProperties } from 'react';
+import { DemoSurface } from '../../components/DemoPrimitives';
 import { DemoStage } from '../../components/DemoStage';
-import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './reinvestment-controls.css';
 
-const REINVESTMENT_BEAT_DURATIONS = [2400, 2600, 3000] as const;
+const PRODUCTS = [
+  { name: '$8 Assessment', rate: 100 },
+  { name: '$99 Online Course', rate: 50 },
+  { name: '$199 AI Pocket Coach', rate: 25 },
+] as const;
 
-function FlowArrow({ label }: { label: string }) {
-  return (
-    <div className="rc-flow-arrow">
-      <span>{label}</span>
-      <i />
-    </div>
-  );
-}
+type SliderStyle = CSSProperties & { '--reinvestment-rate': string };
 
 export function ReinvestmentControls() {
-  const phase = useDemoLoop(REINVESTMENT_BEAT_DURATIONS);
-
   return (
     <DemoStage
-      eyebrow="Brain + Manager"
-      title="One rule keeps profit visible and growth funded."
-      subtitle="Revenue follows the same clear allocation every cycle: keep 60% as profit and reinvest 40% into the next ads."
+      eyebrow="Reinvestment controls"
+      title="Choose how much each product funds growth"
+      subtitle="Set a separate reinvestment rate for every offer."
     >
-      <div
-        className={`rc-demo rc-demo--phase-${phase + 1}`}
-        data-loop-beats={REINVESTMENT_BEAT_DURATIONS.join(',')}
-      >
-        <section className="rc-revenue">
-          <div className="rc-revenue__mark">$</div>
-          <span>Money collected</span>
-          <h2>Revenue</h2>
-        </section>
-
-        <FlowArrow label="Apply rule" />
-
-        <section className="rc-rule">
-          <div className="rc-rule__owner">Brain + Manager</div>
-          <div className="rc-rule__value">40%</div>
-          <h2>Reinvest 40%</h2>
-          <p>One fixed rule, every cycle.</p>
-        </section>
-
-        <div className="rc-split" aria-hidden="true">
-          <span>Split</span>
-          <i />
-          <i />
+      <DemoSurface className="rc-static" aria-label="Product reinvestment controls">
+        <div className="rc-static__heading">
+          <span>Product</span>
+          <span>Revenue reinvested</span>
         </div>
 
-        <section className="rc-outcomes">
-          <article className="rc-outcome rc-outcome--profit">
-            <div className="rc-outcome__percent">60%</div>
-            <div>
-              <span>Keep as</span>
-              <h3>Profit</h3>
-            </div>
-          </article>
-          <article className="rc-outcome rc-outcome--ads">
-            <div className="rc-outcome__percent">40%</div>
-            <div>
-              <span>Fund</span>
-              <h3>Next Ads</h3>
-            </div>
-            <strong>Next ad budget ready</strong>
-          </article>
-        </section>
-      </div>
+        <div className="rc-static__rows">
+          {PRODUCTS.map((product) => (
+            <article className="rc-static__row" key={product.name}>
+              <div className="rc-static__product">
+                <span className="rc-static__product-mark" aria-hidden="true">$</span>
+                <strong>{product.name}</strong>
+              </div>
+
+              <div className="rc-static__control">
+                <div
+                  className="rc-static__slider"
+                  role="slider"
+                  aria-label={`${product.name} revenue reinvested`}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={product.rate}
+                  style={{ '--reinvestment-rate': `${product.rate}%` } as SliderStyle}
+                >
+                  <div className="rc-static__track">
+                    <div className="rc-static__fill" />
+                    <span className="rc-static__thumb"><b>{product.rate}%</b></span>
+                  </div>
+                </div>
+                <div className="rc-static__endpoints" aria-hidden="true">
+                  <span>0%</span>
+                  <span>100%</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </DemoSurface>
     </DemoStage>
   );
 }
