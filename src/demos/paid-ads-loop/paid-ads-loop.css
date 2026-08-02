@@ -3,34 +3,26 @@
   width: 100%;
   height: 100%;
   min-height: 520px;
-  overflow: hidden;
-  border: 1px solid var(--ink-09);
-  border-radius: 28px;
   background:
-    radial-gradient(circle at 50% 50%, var(--brand-08), transparent 34%),
-    linear-gradient(180deg, rgba(255,255,255,.98), rgba(247,248,246,.92));
-  box-shadow: 0 24px 70px rgba(23,40,31,.07);
+    radial-gradient(circle at 50% 50%, var(--brand-06), transparent 35%),
+    rgba(255,255,255,.94);
 }
 
 .pal-static__loop {
   position: absolute;
-  inset: 40px 40px 126px;
-}
-
-.pal-static__connectors {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
+  top: 36px;
+  left: 50%;
+  width: 1376px;
+  height: 420px;
+  transform: translateX(-50%);
   overflow: visible;
 }
 
-.pal-static__connectors marker path {
+.pal-static__loop marker path {
   fill: var(--brand);
 }
 
-.pal-static__connectors > path {
+.pal-static__connectors > path:not(.pal-static__trace) {
   stroke: var(--brand-55);
   stroke-width: 3;
   stroke-linecap: round;
@@ -38,24 +30,14 @@
 }
 
 .pal-static__node {
-  position: absolute;
-  z-index: 2;
-  width: 330px;
-  height: 150px;
-  padding: 28px 30px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 26px 28px;
   display: flex;
   align-items: center;
-  gap: 22px;
-  border: 1px solid var(--ink-09);
-  border-radius: 28px;
-  background: rgba(255,255,255,.98);
-  box-shadow: 0 18px 42px rgba(23,40,31,.09);
+  gap: 20px;
 }
-
-.pal-static__node--launch { top: 0; left: 40px; }
-.pal-static__node--buyers { top: 0; right: 40px; }
-.pal-static__node--brain { right: 40px; bottom: 0; }
-.pal-static__node--improve { bottom: 0; left: 40px; }
 
 .pal-static__step {
   position: absolute;
@@ -89,52 +71,57 @@
 .pal-static__kodara-mark,
 .pal-static__brain-mark,
 .pal-static__improve-mark {
-  width: 66px;
-  height: 66px;
-  display: grid;
-  place-items: center;
-  flex: none;
-  border-radius: 20px;
   color: white;
   background: var(--brand);
-  font: 400 30px/1 var(--font-story);
-  box-shadow: 0 12px 30px rgba(16,104,68,.16);
+  font: 400 25px/1 var(--font-story);
+  box-shadow: none;
 }
+
+.pal-static__brain-mark svg,
+.pal-static__improve-mark svg,
+.pal-static__funding svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pal-static__brain-mark svg { fill: currentColor; stroke: none; }
 
 .pal-static__buyers-mark {
   position: relative;
-  width: 82px;
-  height: 62px;
   display: block;
-  flex: none;
+  overflow: hidden;
 }
 
 .pal-static__buyers-mark i {
   position: absolute;
-  bottom: 0;
-  width: 42px;
-  height: 42px;
-  border: 4px solid white;
+  bottom: 7px;
+  width: 25px;
+  height: 25px;
+  border: 2px solid white;
   border-radius: 50%;
   background: var(--blue);
-  box-shadow: 0 8px 20px rgba(37,99,235,.15);
 }
 
-.pal-static__buyers-mark i:nth-child(1) { left: 0; opacity: .55; transform: scale(.84); }
-.pal-static__buyers-mark i:nth-child(2) { right: 0; opacity: .55; transform: scale(.84); }
-.pal-static__buyers-mark i:nth-child(3) { left: 20px; bottom: 10px; }
+.pal-static__buyers-mark i:nth-child(1) { left: 3px; opacity: .55; transform: scale(.8); }
+.pal-static__buyers-mark i:nth-child(2) { right: 3px; opacity: .55; transform: scale(.8); }
+.pal-static__buyers-mark i:nth-child(3) { left: 11px; bottom: 13px; }
 
-.pal-static__node--brain {
+.pal-static__node.pal-static__node--brain {
   color: white;
-  border-color: #1d2923;
-  background: #1d2923;
-  box-shadow: 0 20px 48px rgba(16,32,23,.16);
+  border-color: var(--brand-92);
+  background: var(--brand-92);
+  box-shadow: var(--shadow-card);
 }
 
 .pal-static__node--brain .pal-static__step { color: rgba(255,255,255,.48); }
 .pal-static__node--brain small { color: rgba(255,255,255,.62); }
 .pal-static__node--brain strong { color: white; }
-.pal-static__brain-mark { color: #1d2923; background: white; }
+.pal-static__brain-mark.flow-icon-tile { color: var(--brand); background: white; }
 
 .pal-static__node--improve {
   border-color: var(--brand-18);
@@ -155,20 +142,22 @@
   right: 320px;
   bottom: 40px;
   left: 320px;
-  height: 62px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   border: 1px solid var(--brand-12);
-  border-radius: 999px;
+  border-radius: 16px;
   color: var(--brand);
   background: rgba(16,104,68,.06);
 }
 
 .pal-static__funding span {
-  font-size: 25px;
-  line-height: 1;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
 }
 
 .pal-static__funding strong {
@@ -188,7 +177,7 @@
 }
 
 .pal-static[class*='pal-static--phase-'] .pal-static__node {
-  opacity: .52;
+  opacity: .72;
   transition: opacity 400ms var(--ease), box-shadow 400ms var(--ease), border-color 400ms var(--ease);
 }
 
@@ -248,7 +237,7 @@
 }
 
 @keyframes pal-static-node-focus {
-  from { opacity: .52; box-shadow: var(--shadow-card); }
+  from { opacity: .72; box-shadow: var(--shadow-card); }
   to { opacity: 1; box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-08); }
 }
 

@@ -1,6 +1,18 @@
 :root {
   --white: #ffffff;
-  --canvas: #f7f8f6;
+  --canvas: #fafafa;
+
+  /* Deck alpha scale */
+  --al-25: rgba(26, 26, 26, 0.04);
+  --al-50: rgba(26, 26, 26, 0.06);
+  --al-100: rgba(26, 26, 26, 0.09);
+  --al-200: rgba(26, 26, 26, 0.2);
+  --al-300: rgba(26, 26, 26, 0.28);
+  --al-400: rgba(26, 26, 26, 0.36);
+  --al-500: rgba(26, 26, 26, 0.48);
+  --al-600: rgba(26, 26, 26, 0.6);
+  --al-900: rgba(26, 26, 26, 0.8);
+  --ad-800: rgba(255, 255, 255, 0.75);
   --ink: rgba(26, 26, 26, 0.8);
   --ink-60: rgba(26, 26, 26, 0.6);
   --ink-48: rgba(26, 26, 26, 0.48);
@@ -21,7 +33,17 @@
   --red: #c2413c;
   --font-ui: 'Instrument Sans', sans-serif;
   --font-story: 'Instrument Serif', serif;
-  --shadow-card: 0 8px 5px rgba(0,0,0,0.01), 0 4px 4px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
-  --shadow-modal: 0 24px 15px rgba(0,0,0,0.02), 0 11px 11px rgba(0,0,0,0.03), 0 3px 6px rgba(0,0,0,0.04);
+  --shadow-card: 0 22px 6px rgba(0,0,0,0), 0 14px 6px rgba(0,0,0,0), 0 8px 5px rgba(0,0,0,0.01), 0 4px 4px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
+  --shadow-modal: 0 67px 19px rgba(0,0,0,0), 0 43px 17px rgba(0,0,0,0.01), 0 24px 15px rgba(0,0,0,0.02), 0 11px 11px rgba(0,0,0,0.03), 0 3px 6px rgba(0,0,0,0.04);
+
+  /* Shared demo geometry */
+  --stage-width: 1600px;
+  --stage-height: 900px;
+  --stage-pad-x: 60px;
+  --stage-pad-y: 48px;
+  --demo-header-height: 140px;
+  --surface-radius: 16px;
+  --nested-radius: 12px;
+  --connector-width: 2px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
