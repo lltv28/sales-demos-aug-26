@@ -1,0 +1,138 @@
+.brain-story {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brain-story .story-node {
+  font-size: 9px;
+}
+
+.brain-story__brain {
+  min-width: 96px;
+  padding: 13px 11px;
+}
+
+.brain-story__brain span {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 7px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  font: 400 13px/1 var(--font-story);
+}
+
+.brain-story--sources {
+  gap: 10px;
+}
+
+.brain-story__sources {
+  display: grid;
+  grid-template-columns: repeat(2, 68px);
+  gap: 6px;
+}
+
+.brain-story__sources .story-node:last-child {
+  grid-column: 1 / -1;
+}
+
+.brain-story__sources .story-node {
+  min-width: 0;
+  padding: 10px 6px;
+}
+
+.brain-story--question {
+  gap: 6px;
+}
+
+.brain-story--question .story-arrow {
+  min-width: 14px;
+}
+
+.brain-story--question .story-arrow i {
+  width: 12px;
+}
+
+.brain-story__question {
+  width: 105px;
+  padding: 9px 10px;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.055);
+}
+
+.brain-story__question span,
+.brain-story__question strong {
+  display: block;
+}
+
+.brain-story__question span {
+  color: var(--blue);
+  font-size: 7px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.brain-story__question strong {
+  margin-top: 4px;
+  color: var(--ink);
+  font: 400 10px/1.25 var(--font-story);
+}
+
+.brain-story__answer-mini {
+  padding: 9px 7px;
+  border: 1px solid var(--brand-18);
+  border-radius: 10px;
+  background: var(--brand-06);
+  color: var(--brand);
+  font-size: 7px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.brain-story__answer-card {
+  width: 86%;
+  padding: 14px 16px;
+  border: 1px solid var(--brand-18);
+  border-left: 4px solid var(--brand);
+  border-radius: 13px;
+  background: white;
+  box-shadow: 0 8px 22px rgba(22, 35, 28, 0.06);
+}
+
+.brain-story__answer-card > span {
+  display: block;
+  color: var(--brand);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.brain-story__answer-card > strong {
+  display: block;
+  max-width: 310px;
+  margin-top: 6px;
+  color: var(--ink);
+  font: 400 13px/1.25 var(--font-story);
+}
+
+.brain-story__source-chips {
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.brain-story__source-chips i {
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: var(--brand-06);
+  color: var(--brand);
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 700;
+}

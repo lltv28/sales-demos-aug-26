@@ -8,6 +8,7 @@ const routes = [
   'reinvestment-controls',
   'organic-workflow',
   'paid-ads-loop',
+  'storyboards',
 ];
 
 const root = resolve('dist');

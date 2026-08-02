@@ -1,0 +1,186 @@
+.sd-story {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sd-story .story-node {
+  font-size: 10px;
+}
+
+.sd-story__manager,
+.sd-story__sales-role {
+  min-width: 116px;
+  padding: 14px 12px;
+}
+
+.sd-story__role-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 7px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  font: 400 13px/1 var(--font-story);
+}
+
+.sd-story__triage-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+
+.sd-story__triage-group--preview {
+  padding: 12px;
+  border: 1px solid var(--brand-18);
+  border-radius: 13px;
+  background: var(--brand-06);
+  font-size: 9px;
+}
+
+.sd-story__triage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 26px);
+  gap: 5px;
+}
+
+.sd-story__triage-grid span {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--brand-18);
+  border-radius: 50%;
+  background: white;
+  color: var(--brand);
+  font-size: 7px;
+  font-weight: 800;
+  box-shadow: 0 3px 8px rgba(16, 104, 68, 0.06);
+}
+
+.sd-story--triagers {
+  justify-content: space-between;
+}
+
+.sd-story__triage-group--hero {
+  width: 57%;
+  padding: 12px 14px;
+  border: 1px solid var(--brand-18);
+  border-radius: 14px;
+  background: var(--brand-06);
+}
+
+.sd-story__triage-group--hero strong,
+.sd-story__triage-group--hero small {
+  display: block;
+}
+
+.sd-story__triage-group--hero strong {
+  font-size: 11px;
+}
+
+.sd-story__triage-group--hero small {
+  width: 76px;
+  margin-top: 3px;
+  color: var(--ink-48);
+  font-size: 7px;
+  line-height: 1.25;
+}
+
+.sd-story__assessment {
+  min-width: 108px;
+  padding: 12px 9px;
+  text-align: center;
+  border-radius: 12px;
+  background: var(--brand);
+  color: white;
+  box-shadow: 0 8px 20px rgba(16, 104, 68, 0.16);
+}
+
+.sd-story__assessment span,
+.sd-story__assessment strong {
+  display: block;
+}
+
+.sd-story__assessment span {
+  margin-bottom: 3px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 7px;
+  font-weight: 650;
+}
+
+.sd-story__assessment strong {
+  font: 400 12px/1.1 var(--font-story);
+}
+
+.sd-story--salesperson {
+  gap: 0;
+}
+
+.sd-story__sales-role {
+  min-width: 112px;
+}
+
+.sd-story__offer-rail {
+  position: relative;
+  width: 54px;
+  height: 76px;
+}
+
+.sd-story__offer-rail::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 22px;
+  height: 1px;
+  background: var(--brand-55);
+}
+
+.sd-story__offer-rail i {
+  position: absolute;
+  left: 21px;
+  width: 33px;
+  height: 39px;
+  border-right: 1px solid var(--brand-55);
+}
+
+.sd-story__offer-rail i:first-child {
+  top: 0;
+  border-top: 1px solid var(--brand-55);
+  border-radius: 0 8px 0 0;
+}
+
+.sd-story__offer-rail i:last-child {
+  bottom: 0;
+  border-bottom: 1px solid var(--brand-55);
+  border-radius: 0 0 8px 0;
+}
+
+.sd-story__offers {
+  display: grid;
+  gap: 8px;
+}
+
+.sd-story__offer {
+  min-width: 112px;
+  padding: 9px 11px;
+  text-align: left;
+}
+
+.sd-story__offer em {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ink-48);
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 650;
+}
+
+.sd-story__offer--main {
+  border-width: 2px;
+}
