@@ -1,7 +1,9 @@
 import { type ReactNode, useEffect, useState } from 'react';
 
-const STAGE_W = 1280;
-const STAGE_H = 720;
+export const STAGE_W = 1600;
+export const STAGE_H = 900;
+
+const fitStage = () => Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H);
 
 export function DemoStage({
   eyebrow,
@@ -16,10 +18,10 @@ export function DemoStage({
   children: ReactNode;
   illustrative?: boolean;
 }) {
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState(fitStage);
 
   useEffect(() => {
-    const fit = () => setScale(Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H));
+    const fit = () => setScale(fitStage());
     fit();
     window.addEventListener('resize', fit);
     return () => window.removeEventListener('resize', fit);
@@ -27,7 +29,11 @@ export function DemoStage({
 
   return (
     <main className="stage-shell">
-      <section className="demo-stage" style={{ transform: `scale(${scale})` }}>
+      <section
+        className="demo-stage"
+        data-native-size={`${STAGE_W}x${STAGE_H}`}
+        style={{ transform: `translate(-50%, -50%) scale(${scale})` }}
+      >
         <div className="demo-stage__inner">
           <header className="demo-header">
             <div className="eyebrow">{eyebrow}</div>

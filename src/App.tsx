@@ -5,6 +5,7 @@ import { ReinvestmentControls } from './demos/reinvestment-controls/Reinvestment
 import { SalesDepartmentDemo } from './demos/sales-department/SalesDepartmentDemo';
 import { SelfFundingFlywheel } from './demos/self-funding-flywheel/SelfFundingFlywheel';
 import { StoryboardGallery } from './storyboards/StoryboardGallery';
+import { StaticReviewGallery } from './review/StaticReviewGallery';
 
 const demos = [
   ['sales-department', '01', 'AI Sales Department', 'One brain coordinating many conversations.'],
@@ -38,6 +39,7 @@ export function App() {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const pathname = window.location.pathname.replace(base, '').replace(/^\/+|\/+$/g, '');
   if (pathname === 'storyboards') return <StoryboardGallery />;
+  if (pathname === 'static-review') return <StaticReviewGallery />;
   if (pathname === 'sales-department') return <SalesDepartmentDemo />;
   if (pathname === 'self-funding-flywheel') return <SelfFundingFlywheel />;
   if (pathname === 'ai-brain') return <AiBrainDemo />;

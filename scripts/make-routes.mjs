@@ -9,6 +9,7 @@ const routes = [
   'organic-workflow',
   'paid-ads-loop',
   'storyboards',
+  'static-review',
 ];
 
 const root = resolve('dist');
