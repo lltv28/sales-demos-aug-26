@@ -74,7 +74,7 @@ export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
     {
       beat: 'Fund the next cycle',
       headline: 'Every sale can fund the next round of ads',
-      description: 'Brain + Manager applies the reinvestment rule after revenue is collected.',
+      description: 'AI Brain Manager applies the reinvestment rule after revenue is collected.',
       content: (
         <div className="flywheel-sb flywheel-sb--reinvest">
           <StoryNode className="flywheel-sb__sources">
@@ -91,7 +91,7 @@ export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
           </StoryNode>
           <div className="flywheel-sb__controlled-step">
             <StoryNode tone="dark" className="flywheel-sb__manager">
-              Brain + Manager
+              AI Brain Manager
               <small>Applies reinvestment rule</small>
             </StoryNode>
             <StoryArrow label="funds next cycle" />

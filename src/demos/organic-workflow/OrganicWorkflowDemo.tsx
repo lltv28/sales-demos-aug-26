@@ -6,22 +6,18 @@ import './organic-workflow.css';
 const ORGANIC_BEAT_DURATIONS = [900, 1100, 1100, 1100, 1100, 1400, 2000] as const;
 
 const WORKFLOW = [
-  { title: 'Brain + Manager', detail: 'Plans the week', icon: '✦' },
+  { title: 'AI Brain Manager', detail: 'Plans the content', icon: '✦' },
   { title: 'AI Avatar', detail: 'Records the ideas', icon: '◉' },
-  { title: 'Publish', detail: 'Posts everywhere', icon: '↑' },
-  { title: 'Comments + DMs', detail: 'Captures intent', icon: '••' },
-  { title: '$17 Assessment', detail: 'Converts demand', icon: '✓' },
+  { title: 'Publish', detail: 'Reaches new people', icon: '↑' },
+  { title: 'Comments + DMs', detail: 'Captures contact info', icon: '••' },
+  { title: '$17 AI Assessment', detail: 'Qualifies intent', icon: '✓' },
 ] as const;
 
 export function OrganicWorkflowDemo() {
   const phase = useDemoLoop(ORGANIC_BEAT_DURATIONS);
 
   return (
-    <DemoStage
-      eyebrow="Organic growth workflow"
-      title="One workflow turns ideas into customers"
-      subtitle="Every buyer signal returns to Brain + Manager for the next content cycle."
-    >
+    <DemoStage>
       <DemoSurface
         className={`ow-static ow-static--phase-${phase + 1}`}
         aria-label="Organic content to paid assessment workflow"
@@ -62,7 +58,7 @@ export function OrganicWorkflowDemo() {
             ))}
           </div>
 
-          <div className="ow-static__return-label">Buyer signals improve the next cycle</div>
+          <div className="ow-static__return-label">Buyer data improves the next cycle</div>
         </div>
       </DemoSurface>
     </DemoStage>

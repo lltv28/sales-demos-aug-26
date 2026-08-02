@@ -28,11 +28,7 @@ export function SalesDepartmentDemo() {
   const phase = useDemoLoop(SALES_DEPARTMENT_BEAT_DURATIONS);
 
   return (
-    <DemoStage
-      eyebrow="Your AI Sales Department"
-      title="One brain directs the entire sales team"
-      subtitle="Brain + Manager guides the Triagers, who route every buyer to the right AI Salesperson."
-    >
+    <DemoStage>
       <DemoSurface
         className={`sd-org sd-org--phase-${phase + 1}`}
         aria-label="Vertical AI sales department organization chart"
@@ -55,8 +51,8 @@ export function SalesDepartmentDemo() {
           <FlowIconTile className="sd-org__brain-icon"><BrainMark /></FlowIconTile>
           <div>
             <small>Leadership</small>
-            <strong>Brain + Manager</strong>
-            <p>Directs every conversation</p>
+            <strong>AI Brain Manager</strong>
+            <p>Knows every offer</p>
           </div>
         </FlowNode>
 

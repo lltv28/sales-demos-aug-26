@@ -5,7 +5,7 @@ import './paid-ads-loop-storyboard.css';
 export const PaidAdsLoopStoryboard: DemoStoryboard = {
   number: '08',
   title: 'Paid Ads Learning Loop',
-  promise: 'Kodara and Brain + Manager improve each cycle together.',
+  promise: 'Kodara and AI Brain Manager improve each cycle together.',
   frames: [
     {
       beat: 'Launch',
@@ -27,7 +27,7 @@ export const PaidAdsLoopStoryboard: DemoStoryboard = {
     {
       beat: 'Learn + improve',
       headline: 'Buyer signals make the next ads smarter.',
-      description: 'Brain + Manager learns. Kodara turns the learning into action.',
+      description: 'AI Brain Manager learns. Kodara turns the learning into action.',
       content: (
         <div className="ads-learning">
           <div className="ads-buyers ads-buyers--compact">
@@ -35,7 +35,7 @@ export const PaidAdsLoopStoryboard: DemoStoryboard = {
           </div>
           <StoryArrow label="signals" />
           <StoryNode tone="brand" className="ads-brain-node">
-            Brain + Manager
+            AI Brain Manager
             <small>What converts</small>
           </StoryNode>
           <StoryArrow label="guides" />
@@ -66,7 +66,7 @@ export const PaidAdsLoopStoryboard: DemoStoryboard = {
             </svg>
             <StoryNode tone="dark" className="ads-cycle__launch">Launch Ads</StoryNode>
             <StoryNode className="ads-cycle__buyers">Real Buyers</StoryNode>
-            <StoryNode tone="brand" className="ads-cycle__learn">Brain + Manager</StoryNode>
+            <StoryNode tone="brand" className="ads-cycle__learn">AI Brain Manager</StoryNode>
             <StoryNode tone="soft" className="ads-cycle__improve">Improve Ads</StoryNode>
           </div>
           <div className="ads-funding-strip">Next cycle funded from revenue</div>

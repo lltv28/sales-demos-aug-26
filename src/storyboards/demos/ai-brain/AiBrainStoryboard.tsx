@@ -6,19 +6,19 @@ function BrainMark() {
   return (
     <StoryNode tone="dark" className="brain-story__brain">
       <span>B</span>
-      Brain + Manager
+      AI Brain Manager
     </StoryNode>
   );
 }
 
 export const AiBrainStoryboard: DemoStoryboard = {
   number: '03',
-  title: 'Brain + Manager',
+  title: 'AI Brain Manager',
   promise: 'Your real expertise becomes clear, source-backed answers for every buyer.',
   frames: [
     {
       beat: 'Teach it once',
-      headline: 'Your expertise goes into one Brain + Manager.',
+      headline: 'Your expertise goes into one AI Brain Manager.',
       description: 'Interview, files, and FAQs become the source.',
       content: (
         <div className="brain-story brain-story--sources">
@@ -34,7 +34,7 @@ export const AiBrainStoryboard: DemoStoryboard = {
     },
     {
       beat: 'Answer the buyer',
-      headline: 'A buyer asks. Brain + Manager finds the answer.',
+      headline: 'A buyer asks. AI Brain Manager finds the answer.',
       description: 'One question is answered from trusted sources.',
       content: (
         <div className="brain-story brain-story--question">

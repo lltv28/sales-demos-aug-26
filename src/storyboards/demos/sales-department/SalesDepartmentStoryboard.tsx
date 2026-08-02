@@ -15,13 +15,13 @@ export const SalesDepartmentStoryboard: DemoStoryboard = {
   frames: [
     {
       beat: 'Direct the team',
-      headline: 'One Brain + Manager leads the whole department.',
+      headline: 'One AI Brain Manager leads the whole department.',
       description: 'The strategy starts in one place.',
       content: (
         <div className="sd-story sd-story--manager">
           <StoryNode tone="dark" className="sd-story__manager">
             <span className="sd-story__role-icon">B</span>
-            Brain + Manager
+            AI Brain Manager
             <small>Sets the play</small>
           </StoryNode>
           <StoryArrow label="directs" />

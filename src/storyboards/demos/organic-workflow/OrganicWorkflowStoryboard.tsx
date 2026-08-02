@@ -35,12 +35,12 @@ export const OrganicWorkflowStoryboard: DemoStoryboard = {
   frames: [
     {
       beat: 'Create',
-      headline: 'Brain + Manager creates your week of content.',
+      headline: 'AI Brain Manager creates your week of content.',
       description: 'One clear batch, ready for the avatar.',
       content: (
         <div className="organic-create">
           <StoryNode tone="dark" className="organic-brain-node">
-            Brain + Manager
+            AI Brain Manager
             <small>Your expertise</small>
           </StoryNode>
           <StoryArrow label="creates" />
@@ -66,7 +66,7 @@ export const OrganicWorkflowStoryboard: DemoStoryboard = {
     {
       beat: 'Convert + learn',
       headline: 'Every response can become a paid assessment.',
-      description: 'Buyer signals return to Brain + Manager for the next week.',
+      description: 'Buyer signals return to AI Brain Manager for the next week.',
       content: (
         <div className="organic-conversion">
           <svg className="organic-conversion__return" viewBox="0 0 360 125" aria-hidden="true">
@@ -87,7 +87,7 @@ export const OrganicWorkflowStoryboard: DemoStoryboard = {
             <small>Paid next step</small>
           </StoryNode>
           <StoryNode tone="soft" className="organic-return-brain">
-            Brain + Manager
+            AI Brain Manager
             <small>Learns what resonated</small>
           </StoryNode>
           <span className="organic-return-label">buyer signal returns</span>

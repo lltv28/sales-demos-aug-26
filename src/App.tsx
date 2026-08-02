@@ -8,12 +8,12 @@ import { StoryboardGallery } from './storyboards/StoryboardGallery';
 import { StaticReviewGallery } from './review/StaticReviewGallery';
 
 const demos = [
-  ['sales-department', '01', 'AI Sales Department', 'One brain coordinating many conversations.'],
-  ['self-funding-flywheel', '02', 'Self-Funding Flywheel', 'Every sale helps fund the next customer.'],
-  ['ai-brain', '03', 'AI Brain + Manager', 'Your business knowledge becomes the operating brain.'],
-  ['reinvestment-controls', '05', 'Reinvestment Controls', 'Growth and profit remain under clear rules.'],
-  ['organic-workflow', '07', 'Organic Workflow', 'One weekly content engine from idea to assessment.'],
-  ['paid-ads-loop', '08', 'Paid Ads Loop', 'Paid advertising learns and improves every cycle.'],
+  ['sales-department', '01', 'AI Sales Department', 'AI salespeople qualify and close leads around the clock.'],
+  ['self-funding-flywheel', '02', 'Self-Funding Flywheel', 'Assessment and offer revenue funds the next lead.'],
+  ['ai-brain', '03', 'AI Brain Manager', 'Everything about the business trains one sales brain.'],
+  ['reinvestment-controls', '05', 'Reinvestment Controls', 'Every offer follows a clear paid-marketing rule.'],
+  ['organic-workflow', '07', 'Organic Lead Loop', 'Content captures interest and creates qualified buyers.'],
+  ['paid-ads-loop', '08', 'Self-Funding Paid Loop', 'Sales revenue pays for the next ad cycle.'],
 ] as const;
 
 function Launcher() {

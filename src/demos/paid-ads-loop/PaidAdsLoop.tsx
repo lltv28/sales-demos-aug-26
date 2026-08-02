@@ -40,11 +40,7 @@ export function PaidAdsLoop() {
   const phase = useDemoLoop(PAID_ADS_BEAT_DURATIONS);
 
   return (
-    <DemoStage
-      eyebrow="Paid growth loop"
-      title="Every ad cycle gets smarter"
-      subtitle="Kodara and Brain + Manager learn from real buyers, then improve the next launch."
-    >
+    <DemoStage>
       <section
         className={`pal-static demo-surface pal-static--phase-${phase + 1}`}
         aria-label="Paid advertising learning loop"
@@ -52,7 +48,7 @@ export function PaidAdsLoop() {
       >
         <svg
           className="pal-static__loop"
-          viewBox="0 0 1376 420"
+          viewBox="0 0 1000 560"
           fill="none"
           aria-hidden="true"
         >
@@ -62,53 +58,53 @@ export function PaidAdsLoop() {
             </marker>
           </defs>
           <g className="pal-static__connectors">
-            <path d="M370 75H994" />
-            <path d="M1171 150V258" />
-            <path d="M1006 345H382" />
-            <path d="M205 270V162" />
+            <path d="M340 120H648" />
+            <path d="M810 200V348" />
+            <path d="M660 440H352" />
+            <path d="M190 360V212" />
 
-            <path pathLength="100" className="pal-static__trace pal-static__trace--launch-buyers" d="M370 75H994" />
-            <path pathLength="100" className="pal-static__trace pal-static__trace--buyers-brain" d="M1171 150V258" />
-            <path pathLength="100" className="pal-static__trace pal-static__trace--brain-improve" d="M1006 345H382" />
-            <path pathLength="100" className="pal-static__trace pal-static__trace--improve-launch" d="M205 270V162" />
+            <path pathLength="100" className="pal-static__trace pal-static__trace--launch-buyers" d="M340 120H648" />
+            <path pathLength="100" className="pal-static__trace pal-static__trace--buyers-brain" d="M810 200V348" />
+            <path pathLength="100" className="pal-static__trace pal-static__trace--brain-improve" d="M660 440H352" />
+            <path pathLength="100" className="pal-static__trace pal-static__trace--improve-launch" d="M190 360V212" />
           </g>
 
-          <foreignObject x="40" y="0" width="330" height="150">
+          <foreignObject x="40" y="40" width="300" height="160">
             <article className="pal-static__node flow-node pal-static__node--launch">
               <span className="pal-static__step">01</span>
               <span className="pal-static__kodara-mark flow-icon-tile" aria-hidden="true">K</span>
-              <div><small>Kodara</small><strong>Launches Ads</strong></div>
+              <div><small>Your team</small><strong>Launches Ads</strong></div>
             </article>
           </foreignObject>
 
-          <foreignObject x="1006" y="0" width="330" height="150">
+          <foreignObject x="660" y="40" width="300" height="160">
             <article className="pal-static__node flow-node pal-static__node--buyers">
               <span className="pal-static__step">02</span>
               <BuyersMark />
-              <div><small>Right-fit prospects</small><strong>Real Buyers</strong></div>
+              <div><small>Qualified prospects</small><strong>Buy Assessment</strong></div>
             </article>
           </foreignObject>
 
-          <foreignObject x="1006" y="270" width="330" height="150">
+          <foreignObject x="660" y="360" width="300" height="160">
             <article className="pal-static__node flow-node pal-static__node--brain">
               <span className="pal-static__step">03</span>
               <span className="pal-static__brain-mark flow-icon-tile"><SparkMark /></span>
-              <div><small>Brain + Manager</small><strong>Learns What Converts</strong></div>
+              <div><small>AI Brain Manager</small><strong>Learns What Converts</strong></div>
             </article>
           </foreignObject>
 
-          <foreignObject x="40" y="270" width="330" height="150">
+          <foreignObject x="40" y="360" width="300" height="160">
             <article className="pal-static__node flow-node pal-static__node--improve">
               <span className="pal-static__step">04</span>
               <span className="pal-static__improve-mark flow-icon-tile"><TrendMark /></span>
-              <div><small>Kodara</small><strong>Improves Ads</strong></div>
+              <div><small>Sales revenue</small><strong>Funds Next Launch</strong></div>
             </article>
           </foreignObject>
         </svg>
 
         <div className="pal-static__funding">
           <span aria-hidden="true"><CycleMark /></span>
-          <strong>Next cycle funded from revenue</strong>
+          <strong>Self-funding growth cycle</strong>
         </div>
       </section>
     </DemoStage>

@@ -16,7 +16,7 @@ export const ReinvestmentControlsStoryboard: DemoStoryboard = {
           <div className="reinvest-story__rule">
             <span>Fixed rule</span>
             <strong>Reinvest 40%</strong>
-            <small>Brain + Manager</small>
+            <small>AI Brain Manager</small>
           </div>
         </div>
       ),

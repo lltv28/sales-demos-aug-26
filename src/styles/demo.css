@@ -46,11 +46,6 @@ button, input { font: inherit; }
   display: flex;
   flex-direction: column;
 }
-.demo-header {
-  height: var(--demo-header-height);
-  flex: none;
-  text-align: center;
-}
 .eyebrow {
   color: var(--brand-92);
   font-size: 12px;
@@ -58,29 +53,17 @@ button, input { font: inherit; }
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
-.demo-title {
-  margin: 8px auto 0;
-  max-width: 1180px;
-  font-family: var(--font-story);
-  font-size: 50px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-  text-wrap: balance;
-}
-.demo-subtitle {
-  margin: 8px auto 0;
-  max-width: 1040px;
-  color: var(--ink-60);
-  font-size: 20px;
-  line-height: 1.7;
-  letter-spacing: -0.15px;
-}
 .demo-body {
   position: relative;
-  flex: 1;
+  width: 100%;
+  height: 100%;
   min-height: 0;
-  margin-top: 12px;
+  display: grid;
+  place-items: center;
+}
+.demo-body > .demo-surface {
+  height: var(--demo-surface-height);
+  flex: none;
 }
 .demo-surface {
   position: relative;

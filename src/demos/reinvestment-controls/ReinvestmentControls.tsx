@@ -7,9 +7,9 @@ import './reinvestment-controls.css';
 const REINVESTMENT_BEAT_DURATIONS = [600, 900, 1300, 1300, 1300, 2700] as const;
 
 const PRODUCTS = [
-  { name: '$8 Assessment', rate: 100 },
-  { name: '$99 Online Course', rate: 50 },
-  { name: '$199 AI Pocket Coach', rate: 25 },
+  { name: '$17 AI Assessment', rate: 100 },
+  { name: '$299 Video Training', rate: 50 },
+  { name: '$199/mo AI Pocket Coach', rate: 25 },
 ] as const;
 
 type SliderStyle = CSSProperties & { '--reinvestment-target-rate': string };
@@ -18,11 +18,7 @@ export function ReinvestmentControls() {
   const phase = useDemoLoop(REINVESTMENT_BEAT_DURATIONS);
 
   return (
-    <DemoStage
-      eyebrow="Reinvestment controls"
-      title="Choose how much each product funds growth"
-      subtitle="Set a separate reinvestment rate for every offer."
-    >
+    <DemoStage>
       <DemoSurface
         className={`rc-static rc-static--phase-${phase + 1}`}
         aria-label="Product reinvestment controls"
@@ -30,7 +26,7 @@ export function ReinvestmentControls() {
       >
         <div className="rc-static__heading">
           <span>Product</span>
-          <span>Revenue reinvested</span>
+          <span>Revenue reinvested into ads</span>
         </div>
 
         <div className="rc-static__rows">

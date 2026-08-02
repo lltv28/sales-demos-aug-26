@@ -3,10 +3,10 @@ import './static-review.css';
 const reviewDemos = [
   ['01', 'AI Sales Department', 'sales-department'],
   ['02', 'Self-Funding Flywheel', 'self-funding-flywheel'],
-  ['03', 'Brain + Manager', 'ai-brain'],
+  ['03', 'AI Brain Manager', 'ai-brain'],
   ['05', 'Reinvestment Controls', 'reinvestment-controls'],
-  ['07', 'Organic Content Loop', 'organic-workflow'],
-  ['08', 'Paid Ads Learning Loop', 'paid-ads-loop'],
+  ['07', 'Organic Lead Loop', 'organic-workflow'],
+  ['08', 'Self-Funding Paid Loop', 'paid-ads-loop'],
 ] as const;
 
 export function StaticReviewGallery() {

@@ -4,9 +4,9 @@ import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './ai-brain.css';
 
 const sources = [
-  { label: 'Interview 1', detail: 'Founder expertise', kind: 'interview' },
-  { label: 'Interview 2', detail: 'Team expertise', kind: 'interview' },
-  { label: 'Files', detail: 'Approved materials', kind: 'files' },
+  { label: 'Interview 1', detail: 'Founder knowledge', kind: 'interview' },
+  { label: 'Interview 2', detail: 'Team knowledge', kind: 'interview' },
+  { label: 'Files', detail: 'Offers + processes', kind: 'files' },
 ];
 const AI_BRAIN_BEAT_DURATIONS = [1500, 1500, 1500, 2700, 900] as const;
 
@@ -35,14 +35,10 @@ export function AiBrainDemo() {
   const phase = useDemoLoop(AI_BRAIN_BEAT_DURATIONS);
 
   return (
-    <DemoStage
-      eyebrow="Brain + Manager"
-      title="Your expertise becomes shared intelligence"
-      subtitle="Interviews and approved files flow into one Brain + Manager for the entire AI sales team."
-    >
+    <DemoStage>
       <DemoSurface
         className={`ab-vertical ab-vertical--phase-${phase + 1}`}
-        aria-label="Three knowledge sources flowing into Brain and Manager"
+        aria-label="Three knowledge sources flowing into the AI Brain Manager"
         data-loop-beats={AI_BRAIN_BEAT_DURATIONS.join(',')}
       >
         <svg className="ab-vertical__connectors" viewBox="0 0 1480 640" fill="none" aria-hidden="true">
@@ -82,9 +78,9 @@ export function AiBrainDemo() {
         <FlowNode className="ab-vertical__brain">
           <FlowIconTile className="ab-vertical__brain-icon"><BrainMark /></FlowIconTile>
           <div>
-            <small>Shared intelligence</small>
-            <strong>Brain + Manager</strong>
-            <p>One source of truth for every AI role</p>
+            <small>Business-trained AI</small>
+            <strong>AI Brain Manager</strong>
+            <p>Knows every product and service</p>
           </div>
         </FlowNode>
       </DemoSurface>

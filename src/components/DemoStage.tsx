@@ -6,15 +6,9 @@ export const STAGE_H = 900;
 const fitStage = () => Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H);
 
 export function DemoStage({
-  eyebrow,
-  title,
-  subtitle,
   children,
   illustrative = false,
 }: {
-  eyebrow: string;
-  title: string;
-  subtitle?: string;
   children: ReactNode;
   illustrative?: boolean;
 }) {
@@ -35,11 +29,6 @@ export function DemoStage({
         style={{ transform: `translate(-50%, -50%) scale(${scale})` }}
       >
         <div className="demo-stage__inner">
-          <header className="demo-header">
-            <div className="eyebrow">{eyebrow}</div>
-            <h1 className="demo-title">{title}</h1>
-            {subtitle ? <p className="demo-subtitle">{subtitle}</p> : null}
-          </header>
           <div className="demo-body">{children}</div>
         </div>
         {illustrative ? <div className="illustrative-note">Illustrative system activity</div> : null}
