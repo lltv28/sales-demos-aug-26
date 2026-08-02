@@ -188,7 +188,8 @@
 
 .pal-static--phase-1 .pal-static__node--launch,
 .pal-static--phase-2 .pal-static__node--buyers,
-.pal-static--phase-3 .pal-static__node--improve {
+.pal-static--phase-3 .pal-static__node--improve,
+.pal-static--phase-4 .pal-static__node--launch {
   opacity: 1;
   box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-06);
 }

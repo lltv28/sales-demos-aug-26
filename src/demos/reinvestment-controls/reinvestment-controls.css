@@ -33,6 +33,11 @@
   border-radius: var(--surface-radius);
   background: var(--white);
   box-shadow: var(--shadow-card);
+  opacity: .72;
+  transition:
+    opacity 400ms var(--ease),
+    border-color 400ms var(--ease),
+    box-shadow 400ms var(--ease);
 }
 
 .rc-static__product {
@@ -65,6 +70,7 @@
 }
 
 .rc-static__slider {
+  --reinvestment-rate: 0%;
   position: relative;
   height: 30px;
 }
@@ -84,6 +90,7 @@
   height: 100%;
   border-radius: inherit;
   background: var(--brand);
+  transition: width 650ms var(--ease);
 }
 
 .rc-static__thumb {
@@ -97,6 +104,7 @@
   background: var(--brand);
   box-shadow: 0 2px 8px rgba(16, 104, 68, .24), 0 0 0 1px var(--brand-18);
   transform: translate(-50%, -50%);
+  transition: left 650ms var(--ease);
 }
 
 .rc-static__thumb b {
@@ -114,7 +122,7 @@
   transform: translateX(-50%);
 }
 
-.rc-static__slider[aria-valuenow='100'] .rc-static__thumb b {
+.rc-static__row:first-child .rc-static__thumb b {
   left: auto;
   right: -13px;
   transform: none;
@@ -127,4 +135,37 @@
   color: var(--ink-36);
   font-size: 14px;
   font-weight: 650;
+}
+
+.rc-static--phase-1 .rc-static__row .rc-static__slider,
+.rc-static--phase-3 .rc-static__row:nth-child(1) .rc-static__slider,
+.rc-static--phase-4 .rc-static__row:nth-child(-n + 2) .rc-static__slider,
+.rc-static--phase-5 .rc-static__row .rc-static__slider,
+.rc-static--phase-6 .rc-static__row .rc-static__slider {
+  --reinvestment-rate: var(--reinvestment-target-rate);
+}
+
+.rc-static--phase-3 .rc-static__row:nth-child(1),
+.rc-static--phase-4 .rc-static__row:nth-child(2),
+.rc-static--phase-5 .rc-static__row:nth-child(3) {
+  opacity: 1;
+  border-color: var(--brand-18);
+  box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-06);
+}
+
+.rc-static--phase-1 .rc-static__row,
+.rc-static--phase-4 .rc-static__row:nth-child(1),
+.rc-static--phase-5 .rc-static__row:nth-child(-n + 2),
+.rc-static--phase-6 .rc-static__row {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc-static__row,
+  .rc-static__fill,
+  .rc-static__thumb {
+    transition: none !important;
+  }
+
+  .rc-static__row { opacity: 1 !important; }
 }

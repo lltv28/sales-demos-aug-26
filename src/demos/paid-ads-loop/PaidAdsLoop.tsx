@@ -2,7 +2,7 @@ import { DemoStage } from '../../components/DemoStage';
 import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './paid-ads-loop.css';
 
-const PAID_ADS_BEAT_DURATIONS = [2300, 2600, 4000] as const;
+const PAID_ADS_BEAT_DURATIONS = [2300, 2600, 2400, 800] as const;
 
 function BuyersMark() {
   return (

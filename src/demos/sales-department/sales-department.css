@@ -26,6 +26,115 @@
   fill: var(--brand);
 }
 
+.sd-org[class*='sd-org--phase-'] .sd-org__node,
+.sd-org[class*='sd-org--phase-'] .sd-org__connector,
+.sd-org[class*='sd-org--phase-'] .sd-org__junction {
+  opacity: .72;
+  transition:
+    opacity 400ms var(--ease),
+    box-shadow 400ms var(--ease),
+    border-color 400ms var(--ease);
+}
+
+.sd-org:is(
+  .sd-org--phase-1,
+  .sd-org--phase-2,
+  .sd-org--phase-3,
+  .sd-org--phase-4,
+  .sd-org--phase-5,
+  .sd-org--phase-6,
+  .sd-org--phase-7,
+  .sd-org--phase-8
+) :is(.sd-org__root, .sd-org__connector--top, .sd-org__junction--top),
+.sd-org:is(
+  .sd-org--phase-2,
+  .sd-org--phase-3,
+  .sd-org--phase-4,
+  .sd-org--phase-5,
+  .sd-org--phase-6,
+  .sd-org--phase-7,
+  .sd-org--phase-8
+) .sd-org__row--triagers .sd-org__role:nth-child(1),
+.sd-org:is(
+  .sd-org--phase-3,
+  .sd-org--phase-4,
+  .sd-org--phase-5,
+  .sd-org--phase-6,
+  .sd-org--phase-7,
+  .sd-org--phase-8
+) .sd-org__row--triagers .sd-org__role:nth-child(2),
+.sd-org:is(
+  .sd-org--phase-4,
+  .sd-org--phase-5,
+  .sd-org--phase-6,
+  .sd-org--phase-7,
+  .sd-org--phase-8
+) .sd-org__row--triagers .sd-org__role:nth-child(3),
+.sd-org:is(.sd-org--phase-5, .sd-org--phase-6, .sd-org--phase-7, .sd-org--phase-8)
+  :is(
+    .sd-org__connector--lower-1,
+    .sd-org__junction--lower-1,
+    .sd-org__row--salespeople .sd-org__role:nth-child(1)
+  ),
+.sd-org:is(.sd-org--phase-6, .sd-org--phase-7, .sd-org--phase-8)
+  :is(
+    .sd-org__connector--lower-2,
+    .sd-org__junction--lower-2,
+    .sd-org__row--salespeople .sd-org__role:nth-child(2)
+  ),
+.sd-org:is(.sd-org--phase-7, .sd-org--phase-8)
+  :is(
+    .sd-org__connector--lower-3,
+    .sd-org__junction--lower-3,
+    .sd-org__row--salespeople .sd-org__role:nth-child(3)
+  ) {
+  opacity: 1;
+}
+
+.sd-org:is(.sd-org--phase-1, .sd-org--phase-8) .sd-org__root,
+.sd-org--phase-8 .sd-org__role {
+  box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-06);
+}
+
+.sd-org--phase-1 .sd-org__root,
+.sd-org--phase-2 .sd-org__row--triagers .sd-org__role:nth-child(1),
+.sd-org--phase-3 .sd-org__row--triagers .sd-org__role:nth-child(2),
+.sd-org--phase-4 .sd-org__row--triagers .sd-org__role:nth-child(3),
+.sd-org--phase-5 .sd-org__row--salespeople .sd-org__role:nth-child(1),
+.sd-org--phase-6 .sd-org__row--salespeople .sd-org__role:nth-child(2),
+.sd-org--phase-7 .sd-org__row--salespeople .sd-org__role:nth-child(3) {
+  animation: sd-org-node-focus 320ms var(--ease) both;
+}
+
+.sd-org--phase-1 .sd-org__connector--top,
+.sd-org--phase-5 .sd-org__connector--lower-1,
+.sd-org--phase-6 .sd-org__connector--lower-2,
+.sd-org--phase-7 .sd-org__connector--lower-3 {
+  animation: sd-org-connector-draw 650ms var(--ease) both;
+}
+
+.sd-org--phase-1 .sd-org__connector--top {
+  animation-delay: 350ms;
+}
+
+.sd-org--phase-9 .sd-org__connector--top {
+  animation: sd-org-connector-reset 500ms var(--ease) both;
+}
+
+.sd-org--phase-9 .sd-org__junction--top {
+  opacity: 1;
+}
+
+.sd-org--phase-9 .sd-org__root {
+  box-shadow: var(--shadow-card);
+}
+
+.sd-org--phase-5 .sd-org__row--salespeople .sd-org__role:nth-child(1),
+.sd-org--phase-6 .sd-org__row--salespeople .sd-org__role:nth-child(2),
+.sd-org--phase-7 .sd-org__row--salespeople .sd-org__role:nth-child(3) {
+  animation-delay: 580ms;
+}
+
 .sd-org__node {
   min-width: 0;
   display: flex;
@@ -146,4 +255,51 @@
   color: var(--ink-60);
   border-color: var(--ink-09);
   background: var(--ink-04);
+}
+
+@keyframes sd-org-connector-draw {
+  from {
+    opacity: .72;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  to {
+    opacity: 1;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sd-org-connector-reset {
+  from {
+    opacity: 1;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+  }
+  to {
+    opacity: .72;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+}
+
+@keyframes sd-org-node-focus {
+  from {
+    opacity: .72;
+    box-shadow: var(--shadow-card);
+  }
+  to {
+    opacity: 1;
+    box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sd-org .sd-org__node,
+  .sd-org .sd-org__connector,
+  .sd-org .sd-org__junction {
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }

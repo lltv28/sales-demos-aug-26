@@ -1,9 +1,11 @@
 import { DemoStage } from '../../components/DemoStage';
 import { DemoSurface, FlowIconTile, FlowNode } from '../../components/DemoPrimitives';
+import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './sales-department.css';
 
 const triagers = ['Triager 1', 'Triager 2', 'Triager 3'];
 const salespeople = ['Salesperson 1', 'Salesperson 2', 'Salesperson 3'];
+const SALES_DEPARTMENT_BEAT_DURATIONS = [1200, 800, 800, 800, 900, 900, 900, 1700, 900] as const;
 
 function BrainMark() {
   return (
@@ -23,24 +25,30 @@ function PeopleMark() {
 }
 
 export function SalesDepartmentDemo() {
+  const phase = useDemoLoop(SALES_DEPARTMENT_BEAT_DURATIONS);
+
   return (
     <DemoStage
       eyebrow="Your AI Sales Department"
       title="One brain directs the entire sales team"
       subtitle="Brain + Manager guides the Triagers, who route every buyer to the right AI Salesperson."
     >
-      <DemoSurface className="sd-org" aria-label="Vertical AI sales department organization chart">
+      <DemoSurface
+        className={`sd-org sd-org--phase-${phase + 1}`}
+        aria-label="Vertical AI sales department organization chart"
+        data-loop-beats={SALES_DEPARTMENT_BEAT_DURATIONS.join(',')}
+      >
         <svg className="sd-org__connectors" viewBox="0 0 1480 640" fill="none" aria-hidden="true">
-          <path d="M740 172V208H352V250" />
-          <path d="M740 208V250" />
-          <path d="M740 208H1128V250" />
-          <path d="M352 376V466" />
-          <path d="M740 376V466" />
-          <path d="M1128 376V466" />
-          <circle cx="740" cy="208" r="5" />
-          <circle cx="352" cy="432" r="4" />
-          <circle cx="740" cy="432" r="4" />
-          <circle cx="1128" cy="432" r="4" />
+          <path className="sd-org__connector sd-org__connector--top" pathLength="100" d="M740 172V208H352V250" />
+          <path className="sd-org__connector sd-org__connector--top" pathLength="100" d="M740 208V250" />
+          <path className="sd-org__connector sd-org__connector--top" pathLength="100" d="M740 208H1128V250" />
+          <path className="sd-org__connector sd-org__connector--lower sd-org__connector--lower-1" pathLength="100" d="M352 376V466" />
+          <path className="sd-org__connector sd-org__connector--lower sd-org__connector--lower-2" pathLength="100" d="M740 376V466" />
+          <path className="sd-org__connector sd-org__connector--lower sd-org__connector--lower-3" pathLength="100" d="M1128 376V466" />
+          <circle className="sd-org__junction sd-org__junction--top" cx="740" cy="208" r="5" />
+          <circle className="sd-org__junction sd-org__junction--lower sd-org__junction--lower-1" cx="352" cy="432" r="4" />
+          <circle className="sd-org__junction sd-org__junction--lower sd-org__junction--lower-2" cx="740" cy="432" r="4" />
+          <circle className="sd-org__junction sd-org__junction--lower sd-org__junction--lower-3" cx="1128" cy="432" r="4" />
         </svg>
 
         <FlowNode className="sd-org__root sd-org__node">

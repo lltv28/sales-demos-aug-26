@@ -41,6 +41,23 @@
   marker-end: url(#ow-static-return-arrow);
 }
 
+.ow-static__trace {
+  fill: none;
+  opacity: 0;
+  stroke: var(--brand);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 14 86;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 4px var(--brand-18));
+  pointer-events: none;
+}
+
+.ow-static__trace--return {
+  stroke-width: 7;
+  stroke-dasharray: 8 92;
+}
+
 .ow-static__track {
   position: absolute;
   top: 70px;
@@ -62,6 +79,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  opacity: .72;
+  transition: opacity 400ms var(--ease), box-shadow 400ms var(--ease), border-color 400ms var(--ease);
 }
 
 .ow-static__step {
@@ -105,4 +124,59 @@
   font-size: 15px;
   font-weight: 700;
   transform: translateX(-50%);
+  opacity: .72;
+  transition: opacity 400ms var(--ease), box-shadow 400ms var(--ease), background 400ms var(--ease);
+}
+
+.ow-static--phase-1 .ow-static__node--1,
+.ow-static--phase-2 .ow-static__node--2,
+.ow-static--phase-3 .ow-static__node--3,
+.ow-static--phase-4 .ow-static__node--4,
+.ow-static--phase-5 .ow-static__node--5,
+.ow-static--phase-6 .ow-static__node--1,
+.ow-static--phase-7 .ow-static__node--1 {
+  opacity: 1;
+  border-color: var(--brand-18);
+  box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-06);
+}
+
+.ow-static--phase-2 .ow-static__trace--1,
+.ow-static--phase-3 .ow-static__trace--2,
+.ow-static--phase-4 .ow-static__trace--3,
+.ow-static--phase-5 .ow-static__trace--4 {
+  animation: ow-static-trace 650ms var(--ease) both;
+}
+
+.ow-static--phase-6 .ow-static__trace--return {
+  animation: ow-static-return-trace 700ms var(--ease) both;
+}
+
+.ow-static--phase-6 .ow-static__return-label {
+  opacity: 1;
+  background: var(--brand-06);
+  box-shadow: 0 0 0 5px var(--brand-06);
+}
+
+@keyframes ow-static-trace {
+  0% { opacity: 0; stroke-dashoffset: 100; }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+
+@keyframes ow-static-return-trace {
+  0% { opacity: 0; stroke-dashoffset: 0; }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0; stroke-dashoffset: -100; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ow-static__node,
+  .ow-static__return-label {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .ow-static__trace { display: none; }
 }

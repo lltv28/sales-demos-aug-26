@@ -27,6 +27,20 @@
   stroke-linejoin: round;
 }
 
+.sfw-static__flow {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16 16;
+  pointer-events: none;
+}
+
+.sfw-static--phase-1 .sfw-static__flow {
+  animation: sfw-static-clockwise-flow 8000ms linear infinite;
+}
+
 .sfw-static__chevron {
   fill: none;
   stroke: var(--brand);
@@ -92,4 +106,15 @@
   font-size: 16px;
   font-weight: 700;
   text-anchor: middle;
+}
+
+@keyframes sfw-static-clockwise-flow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -256; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sfw-static__flow {
+    animation: none;
+  }
 }

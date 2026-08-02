@@ -16,6 +16,7 @@ const STATIONS = [
 ] as const;
 
 const CYCLE_ORDER = [3, 0, 1, 2] as const;
+const FLYWHEEL_BEAT_DURATIONS = [8000] as const;
 
 type Point = { x: number; y: number };
 
@@ -63,10 +64,18 @@ export function SelfFundingFlywheel() {
     return {
       id: `${startStation.id}-${endStation.id}`,
       path: `M ${start.x} ${start.y} Q ${control.x} ${control.y} ${end.x} ${end.y}`,
+      start,
+      control,
+      end,
       chevron,
       chevronRotation: tangentAngle(start, control, end, 0.5),
     };
   });
+
+  const continuousCyclePath = cycleSegments.map((segment, index) => (
+    `${index === 0 ? `M ${segment.start.x} ${segment.start.y} ` : ''}`
+    + `Q ${segment.control.x} ${segment.control.y} ${segment.end.x} ${segment.end.y}`
+  )).join(' ');
 
   return (
     <DemoStage
@@ -74,7 +83,10 @@ export function SelfFundingFlywheel() {
       title="Every sale funds the next buyer."
       subtitle="Ads create demand. AI teams convert it. Revenue returns to acquisition."
     >
-      <div className="sfw-static demo-surface">
+      <div
+        className="sfw-static demo-surface sfw-static--phase-1"
+        data-loop-beats={FLYWHEEL_BEAT_DURATIONS.join(',')}
+      >
         <svg
           className="sfw-static__diagram"
           viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
@@ -90,14 +102,16 @@ export function SelfFundingFlywheel() {
 
           <g className="sfw-static__cycle">
             {cycleSegments.map((segment) => (
-              <g key={segment.id}>
-                <path className="sfw-static__arc" d={segment.path} />
-                <path
-                  className="sfw-static__chevron"
-                  d="M -10 -8 L 0 0 L -10 8"
-                  transform={`translate(${segment.chevron.x} ${segment.chevron.y}) rotate(${segment.chevronRotation})`}
-                />
-              </g>
+              <path key={segment.id} className="sfw-static__arc" d={segment.path} />
+            ))}
+            <path className="sfw-static__flow" d={continuousCyclePath} />
+            {cycleSegments.map((segment) => (
+              <path
+                key={`${segment.id}-chevron`}
+                className="sfw-static__chevron"
+                d="M -10 -8 L 0 0 L -10 8"
+                transform={`translate(${segment.chevron.x} ${segment.chevron.y}) rotate(${segment.chevronRotation})`}
+              />
             ))}
           </g>
 

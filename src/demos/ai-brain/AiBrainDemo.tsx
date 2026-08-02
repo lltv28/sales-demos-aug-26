@@ -1,5 +1,6 @@
 import { DemoStage } from '../../components/DemoStage';
 import { DemoSurface, FlowIconTile, FlowNode } from '../../components/DemoPrimitives';
+import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './ai-brain.css';
 
 const sources = [
@@ -7,6 +8,7 @@ const sources = [
   { label: 'Interview 2', detail: 'Team expertise', kind: 'interview' },
   { label: 'Files', detail: 'Approved materials', kind: 'files' },
 ];
+const AI_BRAIN_BEAT_DURATIONS = [1500, 1500, 1500, 2700, 900] as const;
 
 function SourceMark({ kind }: { kind: string }) {
   return kind === 'files' ? (
@@ -30,24 +32,42 @@ function BrainMark() {
 }
 
 export function AiBrainDemo() {
+  const phase = useDemoLoop(AI_BRAIN_BEAT_DURATIONS);
+
   return (
     <DemoStage
       eyebrow="Brain + Manager"
       title="Your expertise becomes shared intelligence"
       subtitle="Interviews and approved files flow into one Brain + Manager for the entire AI sales team."
     >
-      <DemoSurface className="ab-vertical" aria-label="Three knowledge sources flowing into Brain and Manager">
+      <DemoSurface
+        className={`ab-vertical ab-vertical--phase-${phase + 1}`}
+        aria-label="Three knowledge sources flowing into Brain and Manager"
+        data-loop-beats={AI_BRAIN_BEAT_DURATIONS.join(',')}
+      >
         <svg className="ab-vertical__connectors" viewBox="0 0 1480 640" fill="none" aria-hidden="true">
           <defs>
             <marker id="ab-vertical-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
               <path d="M0 0L10 5L0 10Z" />
             </marker>
           </defs>
-          <path d="M320 205V270H740" />
-          <path d="M740 205V270" />
-          <path d="M1160 205V270H740" />
+          <path className="ab-vertical__source-path" d="M320 205V270H740" />
+          <path className="ab-vertical__source-path" d="M740 205V270" />
+          <path className="ab-vertical__source-path" d="M1160 205V270H740" />
           <path className="ab-vertical__down" d="M740 270V380" />
           <circle cx="740" cy="270" r="5" />
+          <g className="ab-vertical__token ab-vertical__token--1">
+            <rect x="-13" y="-10" width="26" height="20" rx="5" />
+            <path d="M-6-3H6M-6 3H3" />
+          </g>
+          <g className="ab-vertical__token ab-vertical__token--2">
+            <rect x="-13" y="-10" width="26" height="20" rx="5" />
+            <path d="M-6-3H6M-6 3H3" />
+          </g>
+          <g className="ab-vertical__token ab-vertical__token--3">
+            <rect x="-13" y="-10" width="26" height="20" rx="5" />
+            <path d="M-6-3H6M-6 3H3" />
+          </g>
         </svg>
 
         <div className="ab-vertical__sources" aria-label="Knowledge sources">

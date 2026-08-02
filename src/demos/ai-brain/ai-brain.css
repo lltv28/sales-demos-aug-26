@@ -15,7 +15,8 @@
   pointer-events: none;
 }
 
-.ab-vertical__connectors path:not(marker path) {
+.ab-vertical__connectors > .ab-vertical__source-path,
+.ab-vertical__connectors > .ab-vertical__down {
   stroke: var(--brand-55);
   stroke-width: var(--connector-width);
   stroke-linecap: round;
@@ -29,6 +30,71 @@
 .ab-vertical__connectors marker path,
 .ab-vertical__connectors circle {
   fill: var(--brand);
+}
+
+.ab-vertical__token {
+  opacity: 0;
+  transform: translate(var(--token-x), 205px);
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+
+.ab-vertical__token--1 { --token-x: 320px; }
+.ab-vertical__token--2 { --token-x: 740px; }
+.ab-vertical__token--3 { --token-x: 1160px; }
+
+.ab-vertical__token rect {
+  fill: var(--brand);
+  stroke: white;
+  stroke-width: 1.5;
+}
+
+.ab-vertical__token path {
+  fill: none;
+  stroke: white;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.ab-vertical[class*='ab-vertical--phase-']
+  :is(.ab-vertical__source, .ab-vertical__brain, .ab-vertical__source-path, .ab-vertical__down, .ab-vertical__connectors > circle) {
+  opacity: .72;
+  transition:
+    opacity 400ms var(--ease),
+    box-shadow 400ms var(--ease),
+    border-color 400ms var(--ease);
+}
+
+.ab-vertical:is(.ab-vertical--phase-1, .ab-vertical--phase-2, .ab-vertical--phase-3, .ab-vertical--phase-4)
+  :is(.ab-vertical__source:nth-child(1), .ab-vertical__source-path:nth-of-type(1)),
+.ab-vertical:is(.ab-vertical--phase-2, .ab-vertical--phase-3, .ab-vertical--phase-4)
+  :is(.ab-vertical__source:nth-child(2), .ab-vertical__source-path:nth-of-type(2)),
+.ab-vertical:is(.ab-vertical--phase-3, .ab-vertical--phase-4)
+  :is(.ab-vertical__source:nth-child(3), .ab-vertical__source-path:nth-of-type(3)),
+.ab-vertical--phase-4
+  :is(.ab-vertical__brain, .ab-vertical__down, .ab-vertical__connectors > circle) {
+  opacity: 1;
+}
+
+.ab-vertical--phase-1 .ab-vertical__source:nth-child(1),
+.ab-vertical--phase-2 .ab-vertical__source:nth-child(2),
+.ab-vertical--phase-3 .ab-vertical__source:nth-child(3),
+.ab-vertical--phase-4 .ab-vertical__brain {
+  animation: ab-vertical-node-focus 320ms var(--ease) both;
+}
+
+.ab-vertical--phase-1 .ab-vertical__token--1,
+.ab-vertical--phase-2 .ab-vertical__token--2,
+.ab-vertical--phase-3 .ab-vertical__token--3 {
+  animation: ab-vertical-token-drop 650ms 400ms var(--ease) both;
+}
+
+.ab-vertical--phase-4 .ab-vertical__down {
+  animation: ab-vertical-connector-draw 650ms var(--ease) both;
+}
+
+.ab-vertical--phase-4 .ab-vertical__brain {
+  animation-delay: 680ms;
 }
 
 .ab-vertical__sources {
@@ -133,4 +199,55 @@
   margin: 10px 0 0;
   color: rgba(255, 255, 255, 0.72);
   font-size: 17px;
+}
+
+@keyframes ab-vertical-token-drop {
+  0% {
+    opacity: 0;
+    transform: translate(var(--token-x), 205px);
+  }
+  16% { opacity: 1; }
+  82% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(var(--token-x), 270px);
+  }
+}
+
+@keyframes ab-vertical-connector-draw {
+  from {
+    opacity: .72;
+    stroke-dasharray: 110;
+    stroke-dashoffset: 110;
+  }
+  to {
+    opacity: 1;
+    stroke-dasharray: 110;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ab-vertical-node-focus {
+  from {
+    opacity: .72;
+    box-shadow: var(--shadow-card);
+  }
+  to {
+    opacity: 1;
+    box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ab-vertical .ab-vertical__source,
+  .ab-vertical .ab-vertical__brain,
+  .ab-vertical .ab-vertical__source-path,
+  .ab-vertical .ab-vertical__down,
+  .ab-vertical .ab-vertical__connectors > circle {
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .ab-vertical__token { display: none; }
 }
