@@ -1,0 +1,27 @@
+:root {
+  --white: #ffffff;
+  --canvas: #f7f8f6;
+  --ink: rgba(26, 26, 26, 0.8);
+  --ink-60: rgba(26, 26, 26, 0.6);
+  --ink-48: rgba(26, 26, 26, 0.48);
+  --ink-36: rgba(26, 26, 26, 0.36);
+  --ink-20: rgba(26, 26, 26, 0.2);
+  --ink-09: rgba(26, 26, 26, 0.09);
+  --ink-06: rgba(26, 26, 26, 0.06);
+  --ink-04: rgba(26, 26, 26, 0.04);
+  --brand: #106844;
+  --brand-92: rgba(16, 104, 68, 0.92);
+  --brand-55: rgba(16, 104, 68, 0.55);
+  --brand-18: rgba(16, 104, 68, 0.18);
+  --brand-12: rgba(16, 104, 68, 0.12);
+  --brand-08: rgba(16, 104, 68, 0.08);
+  --brand-06: rgba(16, 104, 68, 0.06);
+  --amber: #b7791f;
+  --blue: #2563eb;
+  --red: #c2413c;
+  --font-ui: 'Instrument Sans', sans-serif;
+  --font-story: 'Instrument Serif', serif;
+  --shadow-card: 0 8px 5px rgba(0,0,0,0.01), 0 4px 4px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
+  --shadow-modal: 0 24px 15px rgba(0,0,0,0.02), 0 11px 11px rgba(0,0,0,0.03), 0 3px 6px rgba(0,0,0,0.04);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
