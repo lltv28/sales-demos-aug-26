@@ -1,18 +1,26 @@
 import { DemoStage } from '../../components/DemoStage';
+import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './self-funding-flywheel.css';
+
+const FLYWHEEL_BEAT_DURATIONS = [2200, 2200, 2200, 2800] as const;
 
 function RevenueToken({ children }: { children: string }) {
   return <span className="flywheel-money-token">{children}</span>;
 }
 
 export function SelfFundingFlywheel() {
+  const phase = useDemoLoop(FLYWHEEL_BEAT_DURATIONS);
+
   return (
     <DemoStage
       eyebrow="The Self-Funding Flywheel"
       title="Revenue brings the next buyer in."
       subtitle="Triagers create the first sale. The salesperson makes the main offer. Revenue returns to ads."
     >
-      <div className="flywheel-map">
+      <div
+        className={`flywheel-map flywheel-map--phase-${phase + 1}`}
+        data-loop-beats={FLYWHEEL_BEAT_DURATIONS.join(',')}
+      >
         <svg className="flywheel-map__connectors" viewBox="0 0 1456 633" aria-hidden="true">
           <defs>
             <marker id="flywheel-buyer-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
@@ -23,16 +31,26 @@ export function SelfFundingFlywheel() {
             </marker>
           </defs>
 
-          <path className="flywheel-path flywheel-path--buyer" d="M153 255 C156 220 205 186 270 185" />
-          <path className="flywheel-path flywheel-path--buyer" d="M450 120 C477 120 488 115 515 115" />
-          <path className="flywheel-path flywheel-path--buyer" d="M795 115 C820 115 835 120 860 120" />
-          <path className="flywheel-path flywheel-path--buyer" d="M1110 110 C1150 112 1166 215 1190 265" />
-          <path className="flywheel-path flywheel-path--buyer" d="M1110 150 C1150 176 1135 392 1160 425" />
+          <path pathLength="1" className="flywheel-path flywheel-path--buyer flywheel-path--ads-triagers" d="M153 255 C156 220 205 186 270 185" />
+          <path pathLength="1" className="flywheel-path flywheel-path--buyer flywheel-path--triagers-assessment" d="M450 120 C477 120 488 115 515 115" />
+          <path pathLength="1" className="flywheel-path flywheel-path--buyer flywheel-path--assessment-sales" d="M795 115 C820 115 835 120 860 120" />
+          <path pathLength="1" className="flywheel-path flywheel-path--buyer flywheel-path--sales-main" d="M1110 110 C1150 112 1166 215 1190 265" />
+          <path pathLength="1" className="flywheel-path flywheel-path--buyer flywheel-path--sales-pocket" d="M1110 150 C1150 176 1135 392 1160 425" />
 
-          <path className="flywheel-path flywheel-path--revenue" d="M655 190 C620 229 465 222 465 382 C465 500 642 535 770 535" />
-          <path className="flywheel-path flywheel-path--revenue" d="M1299 320 C1299 420 1188 494 1090 510" />
-          <path className="flywheel-path flywheel-path--revenue" d="M1284 485 C1260 550 1165 572 1090 555" />
-          <path className="flywheel-path flywheel-path--revenue flywheel-path--return" d="M770 570 C630 592 170 592 88 565 C42 526 40 410 48 330" />
+          <path pathLength="1" className="flywheel-path flywheel-path--revenue flywheel-path--assessment-revenue" d="M655 190 C620 229 465 222 465 382 C465 500 642 535 770 535" />
+          <path pathLength="1" className="flywheel-path flywheel-path--revenue flywheel-path--main-revenue" d="M1299 320 C1299 420 1188 494 1090 510" />
+          <path pathLength="1" className="flywheel-path flywheel-path--revenue flywheel-path--pocket-revenue" d="M1284 485 C1260 550 1165 572 1090 555" />
+          <path pathLength="1" className="flywheel-path flywheel-path--revenue flywheel-path--return flywheel-path--revenue-ads" d="M770 570 C630 592 170 592 88 565 C42 526 40 410 48 330" />
+
+          <path pathLength="100" className="flywheel-trace flywheel-trace--buyer flywheel-trace--ads-triagers" d="M153 255 C156 220 205 186 270 185" />
+          <path pathLength="100" className="flywheel-trace flywheel-trace--buyer flywheel-trace--triagers-assessment" d="M450 120 C477 120 488 115 515 115" />
+          <path pathLength="100" className="flywheel-trace flywheel-trace--buyer flywheel-trace--assessment-sales" d="M795 115 C820 115 835 120 860 120" />
+          <path pathLength="100" className="flywheel-trace flywheel-trace--buyer flywheel-trace--sales-main" d="M1110 110 C1150 112 1166 215 1190 265" />
+          <path pathLength="100" className="flywheel-trace flywheel-trace--buyer flywheel-trace--sales-pocket" d="M1110 150 C1150 176 1135 392 1160 425" />
+          <path pathLength="100" className="flywheel-trace flywheel-trace--revenue flywheel-trace--assessment-revenue" d="M655 190 C620 229 465 222 465 382 C465 500 642 535 770 535" />
+          <path pathLength="100" className="flywheel-trace flywheel-trace--revenue flywheel-trace--main-revenue" d="M1299 320 C1299 420 1188 494 1090 510" />
+          <path pathLength="100" className="flywheel-trace flywheel-trace--revenue flywheel-trace--pocket-revenue" d="M1284 485 C1260 550 1165 572 1090 555" />
+          <path pathLength="100" className="flywheel-trace flywheel-trace--revenue flywheel-trace--revenue-ads" d="M770 570 C630 592 170 592 88 565 C42 526 40 410 48 330" />
         </svg>
 
         <section className="flywheel-card flywheel-card--ads">

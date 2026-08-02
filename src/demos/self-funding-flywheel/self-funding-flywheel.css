@@ -28,6 +28,8 @@
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+  opacity: 0.24;
+  transition: opacity 320ms var(--ease), stroke-width 320ms var(--ease);
 }
 
 .flywheel-path--buyer {
@@ -49,6 +51,26 @@
   stroke-width: 4;
 }
 
+.flywheel-trace {
+  fill: none;
+  opacity: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  pointer-events: none;
+}
+
+.flywheel-trace--buyer {
+  stroke: rgba(37, 99, 235, 0.95);
+  stroke-width: 11;
+}
+
+.flywheel-trace--revenue {
+  stroke: rgba(16, 104, 68, 0.96);
+  stroke-width: 12;
+}
+
 .flywheel-card,
 .flywheel-controller,
 .flywheel-revenue {
@@ -58,6 +80,7 @@
   border: 1px solid var(--ink-09);
   border-radius: 20px;
   box-shadow: var(--shadow-card);
+  transition: opacity 320ms var(--ease), border-color 320ms var(--ease), box-shadow 320ms var(--ease);
 }
 
 .flywheel-card {
@@ -402,4 +425,149 @@
   border: 1px solid var(--brand-12);
   font-size: 18px;
   font-weight: 750;
+}
+
+.flywheel-map[class*='flywheel-map--phase-'] .flywheel-card,
+.flywheel-map[class*='flywheel-map--phase-'] .flywheel-revenue {
+  opacity: 0.64;
+}
+
+.flywheel-map[class*='flywheel-map--phase-'] .flywheel-controller {
+  opacity: 0.76;
+}
+
+.flywheel-map--phase-1 .flywheel-card--ads,
+.flywheel-map--phase-1 .flywheel-card--triagers,
+.flywheel-map--phase-1 .flywheel-card--assessment,
+.flywheel-map--phase-2 .flywheel-card--assessment,
+.flywheel-map--phase-2 .flywheel-card--salesperson,
+.flywheel-map--phase-3 .flywheel-card--assessment,
+.flywheel-map--phase-3 .flywheel-card--service,
+.flywheel-map--phase-3 .flywheel-card--pocket,
+.flywheel-map--phase-4 .flywheel-revenue {
+  opacity: 1;
+  border-color: var(--brand-18);
+  box-shadow: var(--shadow-modal), 0 0 0 4px var(--brand-06);
+}
+
+.flywheel-map--phase-2 .flywheel-controller,
+.flywheel-map--phase-4 .flywheel-controller {
+  opacity: 1;
+}
+
+.flywheel-map--phase-1 .flywheel-trace--ads-triagers {
+  animation: flywheel-trace-travel 600ms 0ms var(--ease) both;
+}
+
+.flywheel-map--phase-1 .flywheel-trace--triagers-assessment {
+  animation: flywheel-trace-travel 600ms 650ms var(--ease) both;
+}
+
+.flywheel-map--phase-1 .flywheel-buyer-token {
+  animation: flywheel-buyer-arrives 350ms 1300ms var(--ease) both;
+}
+
+.flywheel-map--phase-2 .flywheel-trace--assessment-sales {
+  animation: flywheel-trace-travel 600ms 0ms var(--ease) both;
+}
+
+.flywheel-map--phase-2 .flywheel-trace--sales-main {
+  animation: flywheel-trace-travel 550ms 650ms var(--ease) both;
+}
+
+.flywheel-map--phase-2 .flywheel-card--service {
+  animation: flywheel-card-focus-in 350ms 650ms var(--ease) both;
+}
+
+.flywheel-map--phase-2 .flywheel-trace--sales-pocket {
+  animation: flywheel-trace-travel 550ms 1250ms var(--ease) both;
+}
+
+.flywheel-map--phase-2 .flywheel-card--pocket {
+  animation: flywheel-card-focus-in 350ms 1250ms var(--ease) both;
+}
+
+.flywheel-map--phase-3 .flywheel-trace--assessment-revenue {
+  animation: flywheel-trace-travel 550ms 0ms var(--ease) both;
+}
+
+.flywheel-map--phase-3 .flywheel-card--assessment > .flywheel-money-token,
+.flywheel-map--phase-3 .flywheel-revenue__sources span:nth-child(1) {
+  animation: flywheel-money-focus 280ms 420ms var(--ease) both;
+}
+
+.flywheel-map--phase-3 .flywheel-trace--main-revenue {
+  animation: flywheel-trace-travel 550ms 600ms var(--ease) both;
+}
+
+.flywheel-map--phase-3 .flywheel-card--service .flywheel-money-token,
+.flywheel-map--phase-3 .flywheel-revenue__sources span:nth-child(2) {
+  animation: flywheel-money-focus 280ms 1020ms var(--ease) both;
+}
+
+.flywheel-map--phase-3 .flywheel-trace--pocket-revenue {
+  animation: flywheel-trace-travel 550ms 1200ms var(--ease) both;
+}
+
+.flywheel-map--phase-3 .flywheel-card--pocket .flywheel-money-token,
+.flywheel-map--phase-3 .flywheel-revenue__sources span:nth-child(3) {
+  animation: flywheel-money-focus 280ms 1620ms var(--ease) both;
+}
+
+.flywheel-map--phase-3 .flywheel-revenue {
+  animation: flywheel-revenue-arrives 350ms 1650ms var(--ease) both;
+}
+
+.flywheel-map--phase-4 .flywheel-trace--revenue-ads {
+  animation: flywheel-trace-travel 900ms 0ms var(--ease) both;
+}
+
+.flywheel-map--phase-4 .flywheel-card--ads,
+.flywheel-map--phase-4 .flywheel-return-label {
+  animation: flywheel-payoff-in 350ms 850ms var(--ease) both;
+}
+
+@keyframes flywheel-trace-travel {
+  0% { opacity: 0; stroke-dashoffset: 100; }
+  14% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+
+@keyframes flywheel-buyer-arrives {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes flywheel-card-focus-in {
+  from { opacity: 0.72; box-shadow: var(--shadow-card); }
+  to { opacity: 1; box-shadow: var(--shadow-modal), 0 0 0 4px var(--brand-06); }
+}
+
+@keyframes flywheel-money-focus {
+  from { opacity: 0.62; background: rgba(255, 255, 255, 0.7); }
+  to { opacity: 1; background: rgba(221, 241, 230, 0.98); }
+}
+
+@keyframes flywheel-revenue-arrives {
+  from { opacity: 0.72; box-shadow: var(--shadow-card); }
+  to { opacity: 1; box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-08); }
+}
+
+@keyframes flywheel-payoff-in {
+  from { opacity: 0.72; }
+  to { opacity: 1; box-shadow: var(--shadow-modal), 0 0 0 4px var(--brand-06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flywheel-map *,
+  .flywheel-map *::before,
+  .flywheel-map *::after {
+    animation-delay: 0ms !important;
+    transition: none !important;
+  }
+
+  .flywheel-trace {
+    display: none;
+  }
 }
