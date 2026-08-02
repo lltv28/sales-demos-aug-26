@@ -96,7 +96,7 @@ try {
 
   for (let attempt = 0; attempt < 100; attempt += 1) {
     const state = await send('Runtime.evaluate', {
-      expression: "document.readyState === 'complete' && document.fonts.status === 'loaded' && Boolean(document.querySelector('.flywheel-map'))",
+      expression: "document.readyState === 'complete' && document.fonts.status === 'loaded' && Boolean(document.querySelector('[data-loop-beats]'))",
       returnByValue: true,
     });
     if (state.result.value) break;
@@ -107,7 +107,7 @@ try {
   for (let attempt = 0; attempt < 100; attempt += 1) {
     try {
       const state = await send('Runtime.evaluate', {
-        expression: "document.readyState === 'complete' && document.fonts.status === 'loaded' && Boolean(document.querySelector('.flywheel-map--phase-1'))",
+        expression: "(() => { const root = document.querySelector('[data-loop-beats]'); return document.readyState === 'complete' && document.fonts.status === 'loaded' && Boolean(root && [...root.classList].some((className) => /--phase-1$/.test(className))); })()",
         returnByValue: true,
       });
       if (state.result.value) break;
@@ -151,10 +151,13 @@ try {
           remaining -= beats[phase];
           phase += 1;
         }
+        const currentPhaseClass = [...root.classList].find((className) => /--phase-\\d+$/.test(className));
+        if (!currentPhaseClass) return;
+        const phasePrefix = currentPhaseClass.replace(/\\d+$/, '');
         for (const className of [...root.classList]) {
           if (/--phase-\\d+$/.test(className)) root.classList.remove(className);
         }
-        root.classList.add('flywheel-map--phase-' + (phase + 1));
+        root.classList.add(phasePrefix + (phase + 1));
         void root.offsetWidth;
         for (const animation of root.getAnimations({ subtree: true })) {
           animation.pause();

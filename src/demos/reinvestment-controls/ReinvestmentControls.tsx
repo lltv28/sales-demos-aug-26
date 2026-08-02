@@ -1,5 +1,8 @@
 import { DemoStage } from '../../components/DemoStage';
+import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './reinvestment-controls.css';
+
+const REINVESTMENT_BEAT_DURATIONS = [2400, 2600, 3000] as const;
 
 function FlowArrow({ label }: { label: string }) {
   return (
@@ -11,13 +14,18 @@ function FlowArrow({ label }: { label: string }) {
 }
 
 export function ReinvestmentControls() {
+  const phase = useDemoLoop(REINVESTMENT_BEAT_DURATIONS);
+
   return (
     <DemoStage
       eyebrow="Brain + Manager"
       title="One rule keeps profit visible and growth funded."
       subtitle="Revenue follows the same clear allocation every cycle: keep 60% as profit and reinvest 40% into the next ads."
     >
-      <div className="rc-demo">
+      <div
+        className={`rc-demo rc-demo--phase-${phase + 1}`}
+        data-loop-beats={REINVESTMENT_BEAT_DURATIONS.join(',')}
+      >
         <section className="rc-revenue">
           <div className="rc-revenue__mark">$</div>
           <span>Money collected</span>

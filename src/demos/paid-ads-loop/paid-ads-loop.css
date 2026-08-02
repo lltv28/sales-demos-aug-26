@@ -174,3 +174,96 @@
 .pal-static__funding strong {
   font-size: 20px;
 }
+
+.pal-static__trace {
+  fill: none;
+  opacity: 0;
+  stroke: rgba(16,104,68,.98);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  marker-end: none;
+  pointer-events: none;
+}
+
+.pal-static[class*='pal-static--phase-'] .pal-static__node {
+  opacity: .52;
+  transition: opacity 400ms var(--ease), box-shadow 400ms var(--ease), border-color 400ms var(--ease);
+}
+
+.pal-static[class*='pal-static--phase-'] .pal-static__funding {
+  opacity: .34;
+  transition: opacity 360ms var(--ease), box-shadow 360ms var(--ease), background 360ms var(--ease);
+}
+
+.pal-static--phase-1 .pal-static__node--launch,
+.pal-static--phase-2 .pal-static__node--buyers,
+.pal-static--phase-3 .pal-static__node--improve {
+  opacity: 1;
+  box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-06);
+}
+
+.pal-static--phase-1 .pal-static__trace--launch-buyers {
+  animation: pal-static-trace 800ms 0ms var(--ease) both;
+}
+
+.pal-static--phase-1 .pal-static__node--buyers {
+  animation: pal-static-node-focus 320ms 820ms var(--ease) both;
+}
+
+.pal-static--phase-2 .pal-static__trace--buyers-brain {
+  animation: pal-static-trace 700ms 0ms var(--ease) both;
+}
+
+.pal-static--phase-2 .pal-static__node--brain {
+  animation: pal-static-node-focus 300ms 720ms var(--ease) both;
+}
+
+.pal-static--phase-2 .pal-static__trace--brain-improve {
+  animation: pal-static-trace 700ms 1050ms var(--ease) both;
+}
+
+.pal-static--phase-2 .pal-static__node--improve {
+  animation: pal-static-node-focus 300ms 1770ms var(--ease) both;
+}
+
+.pal-static--phase-3 .pal-static__trace--improve-launch {
+  animation: pal-static-trace 900ms 0ms var(--ease) both;
+}
+
+.pal-static--phase-3 .pal-static__node--launch {
+  animation: pal-static-node-focus 300ms 920ms var(--ease) both;
+}
+
+.pal-static--phase-3 .pal-static__funding {
+  animation: pal-static-funding-payoff 360ms 1240ms var(--ease) both;
+}
+
+@keyframes pal-static-trace {
+  0% { opacity: 0; stroke-dashoffset: 100; }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+
+@keyframes pal-static-node-focus {
+  from { opacity: .52; box-shadow: var(--shadow-card); }
+  to { opacity: 1; box-shadow: var(--shadow-modal), 0 0 0 5px var(--brand-08); }
+}
+
+@keyframes pal-static-funding-payoff {
+  from { opacity: .34; background: rgba(16,104,68,.06); }
+  to { opacity: 1; background: rgba(16,104,68,.1); box-shadow: 0 0 0 5px var(--brand-06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pal-static .pal-static__node,
+  .pal-static .pal-static__funding {
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .pal-static__trace { display: none; }
+}

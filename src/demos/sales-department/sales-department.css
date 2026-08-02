@@ -11,6 +11,7 @@
   border: 1px solid var(--ink-09);
   background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow-card);
+  transition: opacity 380ms var(--ease), border-color 380ms var(--ease), box-shadow 380ms var(--ease);
 }
 
 .sd-role {
@@ -68,6 +69,8 @@
   color: var(--ink-48);
   font-size: 18px;
   font-weight: 700;
+  opacity: 0.42;
+  transition: opacity 320ms var(--ease), color 320ms var(--ease);
 }
 
 .sd-flow-arrow i {
@@ -76,6 +79,18 @@
   height: 2px;
   margin-top: 12px;
   background: var(--brand-55);
+  overflow: visible;
+}
+
+.sd-flow-arrow i::before {
+  content: '';
+  position: absolute;
+  inset: -2px 0;
+  border-radius: 999px;
+  background: var(--brand);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
 .sd-flow-arrow i::after {
@@ -139,6 +154,7 @@
   font-size: 20px;
   font-weight: 800;
   box-shadow: 0 5px 14px rgba(16, 104, 68, 0.06);
+  transition: background 320ms var(--ease), box-shadow 320ms var(--ease), transform 320ms var(--ease);
 }
 
 .sd-agent small {
@@ -158,6 +174,7 @@
   border-radius: 18px;
   background: var(--brand);
   color: white;
+  transition: box-shadow 380ms var(--ease), transform 380ms var(--ease);
 }
 
 .sd-assessment span,
@@ -209,6 +226,7 @@
   border: 1px solid var(--ink-09);
   border-radius: 14px;
   background: white;
+  transition: opacity 350ms var(--ease), border-color 350ms var(--ease), box-shadow 350ms var(--ease), transform 350ms var(--ease);
 }
 
 .sd-offer--primary {
@@ -231,4 +249,104 @@
   margin-top: 5px;
   color: var(--ink);
   font-size: 20px;
+}
+
+.sd-demo[class*='sd-demo--phase-'] .sd-role,
+.sd-demo[class*='sd-demo--phase-'] .sd-triagers {
+  opacity: 0.74;
+}
+
+.sd-demo--phase-1 .sd-role--brain,
+.sd-demo--phase-1 .sd-triagers,
+.sd-demo--phase-2 .sd-triagers,
+.sd-demo--phase-3 .sd-role--sales {
+  opacity: 1;
+  border-color: var(--brand-18);
+  box-shadow: var(--shadow-modal), 0 0 0 4px var(--brand-06);
+}
+
+.sd-demo--phase-1 .sd-flow-arrow--direct,
+.sd-demo--phase-3 .sd-flow-arrow--handoff {
+  opacity: 1;
+  color: var(--brand);
+}
+
+.sd-demo--phase-1 .sd-flow-arrow--direct i::before {
+  animation: sd-line-travel 700ms 420ms var(--ease) both;
+}
+
+.sd-demo--phase-1 .sd-role--brain .sd-role__mark {
+  animation: sd-mark-focus 420ms 0ms var(--ease) both;
+}
+
+.sd-demo--phase-1 .sd-agent:nth-child(1) span,
+.sd-demo--phase-1 .sd-agent:nth-child(2) span,
+.sd-demo--phase-1 .sd-agent:nth-child(3) span,
+.sd-demo--phase-1 .sd-agent:nth-child(4) span,
+.sd-demo--phase-1 .sd-agent:nth-child(5) span,
+.sd-demo--phase-1 .sd-agent:nth-child(6) span {
+  animation: sd-agent-ready 340ms var(--ease) both;
+}
+
+.sd-demo--phase-1 .sd-agent:nth-child(1) span { animation-delay: 1050ms; }
+.sd-demo--phase-1 .sd-agent:nth-child(2) span { animation-delay: 1130ms; }
+.sd-demo--phase-1 .sd-agent:nth-child(3) span { animation-delay: 1210ms; }
+.sd-demo--phase-1 .sd-agent:nth-child(4) span { animation-delay: 1290ms; }
+.sd-demo--phase-1 .sd-agent:nth-child(5) span { animation-delay: 1370ms; }
+.sd-demo--phase-1 .sd-agent:nth-child(6) span { animation-delay: 1450ms; }
+
+.sd-demo--phase-2 .sd-agent span {
+  background: white;
+  box-shadow: 0 5px 18px rgba(16, 104, 68, 0.13);
+}
+
+.sd-demo--phase-2 .sd-assessment {
+  animation: sd-assessment-sale 520ms 800ms var(--ease) both;
+}
+
+.sd-demo--phase-3 .sd-flow-arrow--handoff i::before {
+  animation: sd-line-travel 700ms 0ms var(--ease) both;
+}
+
+.sd-demo--phase-3 .sd-role--sales .sd-role__mark {
+  animation: sd-mark-focus 380ms 620ms var(--ease) both;
+}
+
+.sd-demo[class*='sd-demo--phase-'] .sd-offer {
+  opacity: 0.62;
+}
+
+.sd-demo--phase-3 .sd-offer--primary {
+  animation: sd-offer-focus 380ms 980ms var(--ease) both;
+}
+
+.sd-demo--phase-3 .sd-offer:not(.sd-offer--primary) {
+  animation: sd-offer-focus 380ms 1480ms var(--ease) both;
+}
+
+@keyframes sd-line-travel {
+  0% { opacity: 0; transform: scaleX(0); }
+  18% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0; transform: scaleX(1); }
+}
+
+@keyframes sd-mark-focus {
+  from { transform: scale(0.94); box-shadow: 0 0 0 4px var(--brand-06); }
+  to { transform: scale(1); box-shadow: 0 0 0 12px var(--brand-12); }
+}
+
+@keyframes sd-agent-ready {
+  from { transform: translateY(8px); background: white; box-shadow: none; }
+  to { transform: translateY(0); background: var(--brand-06); box-shadow: 0 5px 18px rgba(16, 104, 68, 0.13); }
+}
+
+@keyframes sd-assessment-sale {
+  from { transform: translateY(8px); box-shadow: 0 4px 12px rgba(16, 104, 68, 0.08); }
+  to { transform: translateY(0); box-shadow: 0 18px 38px rgba(16, 104, 68, 0.24), 0 0 0 5px var(--brand-08); }
+}
+
+@keyframes sd-offer-focus {
+  from { opacity: 0.62; transform: translateX(8px); box-shadow: none; }
+  to { opacity: 1; transform: translateX(0); border-color: var(--brand-18); box-shadow: 0 8px 22px rgba(16, 104, 68, 0.1); }
 }

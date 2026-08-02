@@ -1,5 +1,8 @@
 import { DemoStage } from '../../components/DemoStage';
+import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './organic-workflow.css';
+
+const ORGANIC_BEAT_DURATIONS = [2200, 2400, 4600] as const;
 
 function PostsFan() {
   return (
@@ -25,6 +28,8 @@ function ConversationMark() {
 }
 
 export function OrganicWorkflowDemo() {
+  const phase = useDemoLoop(ORGANIC_BEAT_DURATIONS);
+
   return (
     <DemoStage
       eyebrow="Organic growth loop"
@@ -32,7 +37,11 @@ export function OrganicWorkflowDemo() {
       subtitle="Brain + Manager creates the content, then learns from every buyer response."
       illustrative
     >
-      <section className="ow-static" aria-label="Organic content to paid assessment workflow">
+      <section
+        className={`ow-static ow-static--phase-${phase + 1}`}
+        aria-label="Organic content to paid assessment workflow"
+        data-loop-beats={ORGANIC_BEAT_DURATIONS.join(',')}
+      >
         <div className="ow-static__diagram">
           <svg className="ow-static__connectors" viewBox="0 0 1376 500" fill="none" aria-hidden="true">
             <defs>
@@ -48,6 +57,12 @@ export function OrganicWorkflowDemo() {
             <path className="ow-static__forward" d="M746 250H782" />
             <path className="ow-static__forward" d="M1010 250H1046" />
             <path className="ow-static__return" d="M1184 370C1184 456 163 456 163 370" />
+
+            <path pathLength="100" className="ow-static__trace ow-static__trace--brain-avatar" d="M288 250H324" />
+            <path pathLength="100" className="ow-static__trace ow-static__trace--avatar-publish" d="M532 250H568" />
+            <path pathLength="100" className="ow-static__trace ow-static__trace--publish-conversation" d="M746 250H782" />
+            <path pathLength="100" className="ow-static__trace ow-static__trace--conversation-assessment" d="M1010 250H1046" />
+            <path pathLength="100" className="ow-static__trace ow-static__trace--assessment-brain" d="M1184 370C1184 456 163 456 163 370" />
           </svg>
 
           <div className="ow-static__track">

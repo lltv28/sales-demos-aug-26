@@ -1,5 +1,8 @@
 import { DemoStage } from '../../components/DemoStage';
+import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './paid-ads-loop.css';
+
+const PAID_ADS_BEAT_DURATIONS = [2300, 2600, 4000] as const;
 
 function BuyersMark() {
   return (
@@ -10,6 +13,8 @@ function BuyersMark() {
 }
 
 export function PaidAdsLoop() {
+  const phase = useDemoLoop(PAID_ADS_BEAT_DURATIONS);
+
   return (
     <DemoStage
       eyebrow="Paid growth loop"
@@ -17,7 +22,11 @@ export function PaidAdsLoop() {
       subtitle="Kodara and Brain + Manager learn from real buyers, then improve the next launch."
       illustrative
     >
-      <section className="pal-static" aria-label="Paid advertising learning loop">
+      <section
+        className={`pal-static pal-static--phase-${phase + 1}`}
+        aria-label="Paid advertising learning loop"
+        data-loop-beats={PAID_ADS_BEAT_DURATIONS.join(',')}
+      >
         <div className="pal-static__loop">
           <svg className="pal-static__connectors" viewBox="0 0 1376 420" fill="none" aria-hidden="true">
             <defs>
@@ -29,6 +38,11 @@ export function PaidAdsLoop() {
             <path d="M1171 150V270" />
             <path d="M1006 345H370" />
             <path d="M205 270V150" />
+
+            <path pathLength="100" className="pal-static__trace pal-static__trace--launch-buyers" d="M370 75H1006" />
+            <path pathLength="100" className="pal-static__trace pal-static__trace--buyers-brain" d="M1171 150V270" />
+            <path pathLength="100" className="pal-static__trace pal-static__trace--brain-improve" d="M1006 345H370" />
+            <path pathLength="100" className="pal-static__trace pal-static__trace--improve-launch" d="M205 270V150" />
           </svg>
 
           <article className="pal-static__node pal-static__node--launch">

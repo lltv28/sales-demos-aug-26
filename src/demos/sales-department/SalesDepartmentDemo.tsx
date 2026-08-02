@@ -1,5 +1,8 @@
 import { DemoStage } from '../../components/DemoStage';
+import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './sales-department.css';
+
+const SALES_DEPARTMENT_BEAT_DURATIONS = [2300, 2500, 3400] as const;
 
 const triagers = Array.from({ length: 6 }, (_, index) => (
   <div className="sd-agent" key={index}>
@@ -8,9 +11,9 @@ const triagers = Array.from({ length: 6 }, (_, index) => (
   </div>
 ));
 
-function FlowArrow({ label }: { label: string }) {
+function FlowArrow({ label, kind }: { label: string; kind: 'direct' | 'handoff' }) {
   return (
-    <div className="sd-flow-arrow">
+    <div className={`sd-flow-arrow sd-flow-arrow--${kind}`}>
       <span>{label}</span>
       <i />
     </div>
@@ -18,13 +21,15 @@ function FlowArrow({ label }: { label: string }) {
 }
 
 export function SalesDepartmentDemo() {
+  const phase = useDemoLoop(SALES_DEPARTMENT_BEAT_DURATIONS);
+
   return (
     <DemoStage
       eyebrow="Your AI Sales Department"
       title="One team moves every buyer forward."
       subtitle="Brain + Manager directs the work, six Triagers sell the first step, and one Salesperson makes the right offer."
     >
-      <div className="sd-demo">
+      <div className={`sd-demo sd-demo--phase-${phase + 1}`} data-loop-beats={SALES_DEPARTMENT_BEAT_DURATIONS.join(',')}>
         <section className="sd-role sd-role--brain">
           <div className="sd-role__mark">B</div>
           <div className="sd-role__kicker">Combined role</div>
@@ -32,7 +37,7 @@ export function SalesDepartmentDemo() {
           <p>Sets the sales play and guides every conversation.</p>
         </section>
 
-        <FlowArrow label="Directs" />
+        <FlowArrow label="Directs" kind="direct" />
 
         <section className="sd-triagers">
           <header>
@@ -50,7 +55,7 @@ export function SalesDepartmentDemo() {
           </div>
         </section>
 
-        <FlowArrow label="Paid buyer" />
+        <FlowArrow label="Paid buyer" kind="handoff" />
 
         <section className="sd-role sd-role--sales">
           <div className="sd-role__mark">S</div>
