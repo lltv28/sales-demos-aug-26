@@ -73,7 +73,7 @@ export function PaidAdsLoop() {
             <article className="pal-static__node flow-node pal-static__node--launch">
               <span className="pal-static__step">01</span>
               <span className="pal-static__kodara-mark flow-icon-tile" aria-hidden="true">K</span>
-              <div><small>Your team</small><strong>Launches Ads</strong></div>
+              <div><small>Our team</small><strong>Launches Ads</strong></div>
             </article>
           </foreignObject>
 
