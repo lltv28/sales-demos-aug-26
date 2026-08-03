@@ -104,7 +104,7 @@
   height: 25px;
   border: 2px solid white;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--brand);
 }
 
 .pal-static__buyers-mark i:nth-child(1) { left: 3px; opacity: .55; transform: scale(.8); }
