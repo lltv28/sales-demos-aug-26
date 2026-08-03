@@ -13,6 +13,7 @@ export function DemoStage({
   illustrative?: boolean;
 }) {
   const [scale, setScale] = useState(fitStage);
+  const embedded = new URLSearchParams(window.location.search).get('embed') === '1';
 
   useEffect(() => {
     const fit = () => setScale(fitStage());
@@ -22,7 +23,7 @@ export function DemoStage({
   }, []);
 
   return (
-    <main className="stage-shell">
+    <main className={`stage-shell${embedded ? ' stage-shell--embed' : ''}`}>
       <section
         className="demo-stage"
         data-native-size={`${STAGE_W}x${STAGE_H}`}
