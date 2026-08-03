@@ -11,7 +11,7 @@ const triagers = Array.from({ length: 6 }, (_, index) => (
 export const SalesDepartmentStoryboard: DemoStoryboard = {
   number: '01',
   title: 'Your AI Sales Department',
-  promise: 'One manager, a team of triagers, and one salesperson move every buyer forward.',
+  promise: 'One manager, a team of AI Triagers, and one salesperson move every buyer forward.',
   frames: [
     {
       beat: 'Direct the team',
@@ -35,7 +35,7 @@ export const SalesDepartmentStoryboard: DemoStoryboard = {
     {
       beat: 'Sell the first step',
       headline: 'Six AI Triagers turn interest into a paid first step.',
-      description: 'The $17 assessment is the front door.',
+      description: 'The $8 AI Triager is the front door.',
       content: (
         <div className="sd-story sd-story--triagers">
           <div className="sd-story__triage-group sd-story__triage-group--hero">
@@ -48,7 +48,7 @@ export const SalesDepartmentStoryboard: DemoStoryboard = {
           <StoryArrow label="sell" />
           <div className="sd-story__assessment">
             <span>Paid first step</span>
-            <strong>$17 Assessment</strong>
+            <strong>$8 AI Triager</strong>
           </div>
         </div>
       ),

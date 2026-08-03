@@ -81,7 +81,7 @@ export function PaidAdsLoop() {
             <article className="pal-static__node flow-node pal-static__node--buyers">
               <span className="pal-static__step">02</span>
               <BuyersMark />
-              <div><small>Qualified prospects</small><strong>Buy Assessment</strong></div>
+              <div><small>Qualified prospects</small><strong>AI Triager</strong></div>
             </article>
           </foreignObject>
 

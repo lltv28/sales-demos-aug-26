@@ -9,7 +9,7 @@ import { StaticReviewGallery } from './review/StaticReviewGallery';
 
 const demos = [
   ['sales-department', '01', 'AI Sales Department', 'AI salespeople qualify and close leads around the clock.'],
-  ['self-funding-flywheel', '02', 'Self-Funding Flywheel', 'Assessment and offer revenue funds the next lead.'],
+  ['self-funding-flywheel', '02', 'Self-Funding Flywheel', 'AI Triager and offer revenue funds the next lead.'],
   ['ai-brain', '03', 'AI Brain Manager', 'Everything about the business trains one sales brain.'],
   ['reinvestment-controls', '05', 'Reinvestment Controls', 'Every offer follows a clear paid-marketing rule.'],
   ['organic-workflow', '07', 'Organic Lead Loop', 'Content captures interest and creates qualified buyers.'],

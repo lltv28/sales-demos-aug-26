@@ -10,7 +10,7 @@ const AGENT_RADIUS = WHEEL_RADIUS * 0.62;
 const FAN_OFFSETS = [0, -14, 14, -28, 28].map((degrees) => (degrees * Math.PI) / 180);
 
 const STATIONS = [
-  { id: 'triage', lines: ['Triage'], angle: -Math.PI / 2 },
+  { id: 'triage', lines: ['AI Triager'], angle: -Math.PI / 2 },
   { id: 'high-ticket', lines: ['High Ticket', 'Sales'], angle: 0 },
   { id: 'downsell', lines: ['Downsell', 'Sales'], angle: Math.PI / 2 },
   { id: 'ads', lines: ['Ads'], angle: Math.PI },
@@ -144,7 +144,7 @@ export function SelfFundingFlywheel() {
         >
           <title id="sfw-title">Self-funding sales flywheel</title>
           <desc id="sfw-description">
-            A clockwise circular flow moves from Ads to Triage, then to High Ticket Sales and Downsell Sales before returning to Ads, coordinated by the AI Brain Manager at the center. Select any node to focus its branch.
+            A clockwise circular flow moves from Ads to AI Triager, then to High Ticket Sales and Downsell Sales before returning to Ads, coordinated by the AI Brain Manager at the center. Select any node to focus its branch.
           </desc>
 
           <g className="sfw-static__scene" style={{ transform: sceneTransform }}>
@@ -235,9 +235,8 @@ export function SelfFundingFlywheel() {
               })}
             >
               <circle r="84" />
-              <text className="sfw-static__brain-kicker" y="-20">AI SYSTEM</text>
-              <text className="sfw-static__brain-label" y="10">AI Brain</text>
-              <text className="sfw-static__brain-label" y="38">Manager</text>
+              <text className="sfw-static__brain-label" y="-2">AI Brain</text>
+              <text className="sfw-static__brain-label" y="30">Manager</text>
             </g>
 
             <g className="sfw-static__stations">

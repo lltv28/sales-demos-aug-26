@@ -3,7 +3,7 @@ import { DemoSurface, FlowIconTile, FlowNode } from '../../components/DemoPrimit
 import { useDemoLoop } from '../../hooks/useDemoLoop';
 import './sales-department.css';
 
-const triagers = ['Triager 1', 'Triager 2', 'Triager 3'];
+const triagers = ['AI Triager 1', 'AI Triager 2', 'AI Triager 3'];
 const salespeople = ['Salesperson 1', 'Salesperson 2', 'Salesperson 3'];
 const SALES_DEPARTMENT_BEAT_DURATIONS = [1200, 800, 800, 800, 900, 900, 900, 1700, 900] as const;
 
@@ -60,7 +60,7 @@ export function SalesDepartmentDemo() {
           {triagers.map((label) => (
             <FlowNode className="sd-org__node sd-org__role" key={label}>
               <FlowIconTile><PeopleMark /></FlowIconTile>
-              <div><small>AI Triager</small><strong>{label}</strong></div>
+              <div><small>Qualification</small><strong>{label}</strong></div>
             </FlowNode>
           ))}
         </div>

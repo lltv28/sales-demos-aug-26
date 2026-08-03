@@ -31,7 +31,7 @@ function AvatarNode() {
 export const OrganicWorkflowStoryboard: DemoStoryboard = {
   number: '07',
   title: 'Organic Content Loop',
-  promise: 'Turn one week of ideas into paid assessments.',
+  promise: 'Turn one week of ideas into paid AI Triagers.',
   frames: [
     {
       beat: 'Create',
@@ -65,7 +65,7 @@ export const OrganicWorkflowStoryboard: DemoStoryboard = {
     },
     {
       beat: 'Convert + learn',
-      headline: 'Every response can become a paid assessment.',
+      headline: 'Every response can become a paid AI Triager.',
       description: 'Buyer signals return to AI Brain Manager for the next week.',
       content: (
         <div className="organic-conversion">
@@ -83,7 +83,7 @@ export const OrganicWorkflowStoryboard: DemoStoryboard = {
           </StoryNode>
           <StoryArrow label="offers" />
           <StoryNode tone="brand" className="organic-assessment-node">
-            $17 Assessment
+            $8 AI Triager
             <small>Paid next step</small>
           </StoryNode>
           <StoryNode tone="soft" className="organic-return-brain">

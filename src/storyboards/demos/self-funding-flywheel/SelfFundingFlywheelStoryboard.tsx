@@ -10,12 +10,12 @@ import './self-funding-flywheel-storyboard.css';
 export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
   number: '02',
   title: 'Self-Funding Flywheel',
-  promise: 'The first paid assessment starts a revenue loop that can fund the next round of ads.',
+  promise: 'The first paid AI Triager starts a revenue loop that can fund the next round of ads.',
   frames: [
     {
       beat: 'Create the first sale',
-      headline: 'Ads lead to a paid $17 assessment',
-      description: 'Triagers turn ad responses into paid assessment buyers.',
+      headline: 'Ads lead to a paid $8 AI Triager',
+      description: 'AI Triagers turn ad responses into paid AI Triager buyers.',
       content: (
         <div className="flywheel-sb flywheel-sb--entry">
           <StoryNode tone="soft" className="flywheel-sb__node flywheel-sb__node--ads-entry">
@@ -28,7 +28,7 @@ export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
           </StoryNode>
           <StoryArrow label="sell" />
           <StoryNode tone="soft" className="flywheel-sb__node flywheel-sb__node--assessment">
-            $17 Assessment
+            $8 AI Triager
           </StoryNode>
           <StoryArrow />
           <PersonToken label="Paid buyer" active />
@@ -45,7 +45,7 @@ export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
             <PersonToken label="Paid buyer" active />
             <StoryNode tone="soft" className="flywheel-sb__node">
               Plan Delivered
-              <small>Personalized assessment</small>
+              <small>Personalized AI Triager</small>
             </StoryNode>
           </div>
           <StoryArrow />
@@ -80,7 +80,7 @@ export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
           <StoryNode className="flywheel-sb__sources">
             <span className="flywheel-sb__sources-label">Revenue from</span>
             <div>
-              <RevenueToken label="$17 Assessment" />
+              <RevenueToken label="$8 AI Triager" />
               <RevenueToken label="Main Service Sold" />
               <RevenueToken label="Pocket Coach" />
             </div>

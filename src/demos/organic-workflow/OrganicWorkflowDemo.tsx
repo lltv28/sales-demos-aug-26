@@ -10,7 +10,7 @@ const WORKFLOW = [
   { title: 'AI Avatar', detail: 'Records the ideas', icon: '◉' },
   { title: 'Publish', detail: 'Reaches new people', icon: '↑' },
   { title: 'Comments + DMs', detail: 'Captures contact info', icon: '••' },
-  { title: '$17 AI Assessment', detail: 'Qualifies intent', icon: '✓' },
+  { title: '$8 AI Triager', detail: 'Qualifies intent', icon: '✓' },
 ] as const;
 
 export function OrganicWorkflowDemo() {
@@ -20,7 +20,7 @@ export function OrganicWorkflowDemo() {
     <DemoStage>
       <DemoSurface
         className={`ow-static ow-static--phase-${phase + 1}`}
-        aria-label="Organic content to paid assessment workflow"
+        aria-label="Organic content to paid AI Triager workflow"
         data-loop-beats={ORGANIC_BEAT_DURATIONS.join(',')}
       >
         <div className="ow-static__diagram">
