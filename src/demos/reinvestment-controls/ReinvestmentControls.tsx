@@ -7,7 +7,7 @@ import './reinvestment-controls.css';
 const REINVESTMENT_BEAT_DURATIONS = [600, 900, 1300, 1300, 1300, 2700] as const;
 
 const PRODUCTS = [
-  { name: '$8 AI Triager', rate: 100 },
+  { name: '<$20 Assessment', rate: 100 },
   { name: '$299 Video Training', rate: 50 },
   { name: '$199/mo AI Pocket Coach', rate: 25 },
 ] as const;
