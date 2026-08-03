@@ -139,7 +139,7 @@
 
 .pal-static__funding {
   position: absolute;
-  top: 298px;
+  top: 274px;
   left: 50%;
   width: 360px;
   height: 56px;
@@ -229,6 +229,26 @@
 
 .pal-static--phase-3 .pal-static__funding {
   animation: pal-static-funding-payoff 360ms 1240ms var(--ease) both;
+}
+
+.stage-shell--embed .pal-static__node {
+  opacity: 1 !important;
+  color: var(--ink) !important;
+  border-color: var(--al-100) !important;
+  background: var(--white) !important;
+  box-shadow: var(--shadow-card) !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+.stage-shell--embed .pal-static__node .pal-static__step { color: var(--ink-36) !important; }
+.stage-shell--embed .pal-static__node small { color: var(--ink-48) !important; }
+.stage-shell--embed .pal-static__node strong { color: var(--ink) !important; }
+
+.stage-shell--embed .pal-static__funding {
+  opacity: 1 !important;
+  animation: none !important;
+  transition: none !important;
 }
 
 @keyframes pal-static-trace {

@@ -157,6 +157,19 @@
   box-shadow: 0 0 0 5px var(--brand-06);
 }
 
+.stage-shell--embed .ow-static__node {
+  opacity: 1 !important;
+  border-color: var(--al-100) !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: none !important;
+}
+
+.stage-shell--embed .ow-static__return-label {
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, .96) !important;
+  box-shadow: none !important;
+}
+
 @keyframes ow-static-trace {
   0% { opacity: 0; stroke-dashoffset: 100; }
   12% { opacity: 1; }
