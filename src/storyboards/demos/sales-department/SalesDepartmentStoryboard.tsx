@@ -35,7 +35,7 @@ export const SalesDepartmentStoryboard: DemoStoryboard = {
     {
       beat: 'Sell the first step',
       headline: 'Six AI Triagers turn interest into a paid first step.',
-      description: 'The $8 AI Triager is the front door.',
+      description: 'The <$20 assessment is the front door.',
       content: (
         <div className="sd-story sd-story--triagers">
           <div className="sd-story__triage-group sd-story__triage-group--hero">
@@ -48,7 +48,7 @@ export const SalesDepartmentStoryboard: DemoStoryboard = {
           <StoryArrow label="sell" />
           <div className="sd-story__assessment">
             <span>Paid first step</span>
-            <strong>$8 AI Triager</strong>
+            <strong>&lt;$20 Assessment</strong>
           </div>
         </div>
       ),

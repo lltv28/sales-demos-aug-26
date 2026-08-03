@@ -5,6 +5,14 @@
     rgba(255, 255, 255, 0.94);
 }
 
+.demo-stage__inner:has(.sfw-static) {
+  padding-block: 0;
+}
+
+.demo-stage .demo-body > .sfw-static {
+  height: 900px;
+}
+
 .sfw-static__diagram {
   display: block;
   width: 100%;
@@ -119,9 +127,56 @@
 
 .sfw-static__stations text {
   fill: var(--ink);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   text-anchor: middle;
+}
+
+.sfw-static__flow-labels {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  transition: opacity 180ms var(--ease);
+}
+
+.sfw-static__flow-labels--hidden {
+  opacity: 0;
+}
+
+.sfw-static__flow-label {
+  position: absolute;
+  padding: 6px 10px;
+  border: 1px solid var(--brand-18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 16px rgba(30, 41, 59, 0.08);
+  color: var(--brand-92);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.sfw-static__flow-label--leads {
+  left: 27.4%;
+  top: 18.5%;
+}
+
+.sfw-static__flow-label--assessment {
+  left: 72.6%;
+  top: 18.5%;
+}
+
+.sfw-static__flow-label--ads {
+  left: 27.4%;
+  top: 81.5%;
+}
+
+.sfw-static__flow-label--downsell {
+  left: 72.6%;
+  top: 81.5%;
 }
 
 @keyframes sfw-static-chevron-pulse {

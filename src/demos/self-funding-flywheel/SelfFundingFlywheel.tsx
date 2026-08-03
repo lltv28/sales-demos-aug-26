@@ -2,10 +2,10 @@ import { useState, type KeyboardEvent, type MouseEvent } from 'react';
 import { DemoStage } from '../../components/DemoStage';
 import './self-funding-flywheel.css';
 
-const VIEWBOX_WIDTH = 1480;
-const VIEWBOX_HEIGHT = 620;
+const VIEWBOX_WIDTH = 1240;
+const VIEWBOX_HEIGHT = 760;
 const CENTER = { x: VIEWBOX_WIDTH / 2, y: VIEWBOX_HEIGHT / 2 };
-const WHEEL_RADIUS = 250;
+const WHEEL_RADIUS = 275;
 const AGENT_RADIUS = WHEEL_RADIUS * 0.62;
 const FAN_OFFSETS = [0, -14, 14, -28, 28].map((degrees) => (degrees * Math.PI) / 180);
 
@@ -277,6 +277,12 @@ export function SelfFundingFlywheel() {
           </g>
 
         </svg>
+        <div className={`sfw-static__flow-labels${focusedNode ? ' sfw-static__flow-labels--hidden' : ''}`}>
+          <span className="sfw-static__flow-label sfw-static__flow-label--leads">Attracts new leads</span>
+          <span className="sfw-static__flow-label sfw-static__flow-label--assessment">&lt;$20 assessment</span>
+          <span className="sfw-static__flow-label sfw-static__flow-label--ads">Funds new ads</span>
+          <span className="sfw-static__flow-label sfw-static__flow-label--downsell">Offers downsell</span>
+        </div>
       </div>
     </DemoStage>
   );

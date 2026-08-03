@@ -10,7 +10,7 @@ const WORKFLOW = [
   { title: 'AI Avatar', detail: 'Records the ideas', icon: '◉' },
   { title: 'Publish', detail: 'Reaches new people', icon: '↑' },
   { title: 'Comments + DMs', detail: 'Captures contact info', icon: '••' },
-  { title: '$8 AI Triager', detail: 'Qualifies intent', icon: '✓' },
+  { title: '<$20 Assessment', detail: 'Qualifies intent', icon: '✓' },
 ] as const;
 
 export function OrganicWorkflowDemo() {

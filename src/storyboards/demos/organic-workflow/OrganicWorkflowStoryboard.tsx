@@ -83,7 +83,7 @@ export const OrganicWorkflowStoryboard: DemoStoryboard = {
           </StoryNode>
           <StoryArrow label="offers" />
           <StoryNode tone="brand" className="organic-assessment-node">
-            $8 AI Triager
+            &lt;$20 Assessment
             <small>Paid next step</small>
           </StoryNode>
           <StoryNode tone="soft" className="organic-return-brain">

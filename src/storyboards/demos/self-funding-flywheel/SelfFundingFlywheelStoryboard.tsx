@@ -14,7 +14,7 @@ export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
   frames: [
     {
       beat: 'Create the first sale',
-      headline: 'Ads lead to a paid $8 AI Triager',
+      headline: 'Ads lead to a <$20 assessment',
       description: 'AI Triagers turn ad responses into paid AI Triager buyers.',
       content: (
         <div className="flywheel-sb flywheel-sb--entry">
@@ -28,7 +28,7 @@ export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
           </StoryNode>
           <StoryArrow label="sell" />
           <StoryNode tone="soft" className="flywheel-sb__node flywheel-sb__node--assessment">
-            $8 AI Triager
+            &lt;$20 Assessment
           </StoryNode>
           <StoryArrow />
           <PersonToken label="Paid buyer" active />
@@ -80,7 +80,7 @@ export const SelfFundingFlywheelStoryboard: DemoStoryboard = {
           <StoryNode className="flywheel-sb__sources">
             <span className="flywheel-sb__sources-label">Revenue from</span>
             <div>
-              <RevenueToken label="$8 AI Triager" />
+              <RevenueToken label={'<$20 Assessment'} />
               <RevenueToken label="Main Service Sold" />
               <RevenueToken label="Pocket Coach" />
             </div>
